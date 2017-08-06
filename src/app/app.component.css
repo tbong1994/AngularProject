@@ -1,0 +1,17 @@
+@font-face {
+    font-family: harrypotterfont;
+    src: url("../assets/font/harrypotter.TTF") format(ttf);
+}
+
+h1
+{
+
+  font-family: harrypotterfont;
+  font-size: 50px;  
+}
+p
+{
+ background-color: auto;
+ align-content: middle;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;   
+}
