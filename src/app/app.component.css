@@ -1,11 +1,10 @@
 @font-face {
     font-family: harrypotterfont;
-    src: url("../assets/font/harrypotter.TTF") format(ttf);
+    src: url("../assets/font/harrypotter.ttf");
 }
 
 h1
 {
-
   font-family: harrypotterfont;
   font-size: 50px;  
 }
