@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 
 import { AppComponent } from './app.component';
-import { FirstComponentComponent } from './first-component/first-component.component';
+import { CharacterDetailComponent } from './character-detail.component';
+import { Character } from './character';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponentComponent
+    CharacterDetailComponent,
   ],
   imports: [
     BrowserModule,
