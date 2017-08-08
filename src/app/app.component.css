@@ -1,16 +1,39 @@
+/*START FONTS  */
 @font-face {
     font-family: harrypotterfont;
     src: url("../assets/font/harrypotter.ttf");
 }
+/*END FONTS*/
 
+/*START HEADER  */
+#headerDiv
+{
+  background-image: url("../assets/img/greathall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  padding-top: 15px;
+  padding-left: 45px;
+  height: 700px;
+  opacity: 0.9;
+}
 h1
 {
+  width: 100%;
   font-family: harrypotterfont;
-  font-size: 50px;  
+  font-size: 100px;
+  color: darkgoldenrod;
+  text-align: center;
 }
+
+/*END HEADER  */
+
+
 p
 {
  background-color: auto;
  align-content: middle;
- font-family: Verdana, Geneva, Tahoma, sans-serif;   
+ font-family: 'Lobster Two', cursive; 
+ color: darkgoldenrod;  
 }
+
