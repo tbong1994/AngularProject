@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 
 
-
-
-export class Character {
-  
+export class Wizard {
   school: string;
   name: string;
 }

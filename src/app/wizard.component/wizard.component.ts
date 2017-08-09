@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Character } from './character';
+import { Wizard } from './wizard';
 
-const CHARACTERS: Character[] = [
+const WIZARDS: Wizard[] = [
   { school:'Hogwartz', name: 'Harry Potter' },
   { school:'Hogwartz', name: 'Ronald Weasley' },
   { school:'Hogwartz', name: 'Hermione Granger' },
@@ -14,15 +14,17 @@ const CHARACTERS: Character[] = [
   { school:'Hogwartz', name: 'Dumbledore' }
 ];
 
- let characters = CHARACTERS;
+
 @Component({
-  selector: 'character-detail',
-  templateUrl: 'character-detail.component.html'
+  selector: 'wizard',
+  templateUrl: './wizard.html',
+  styleUrls: ['./wizard.component.css']
 })
 
-export class CharacterDetailComponent {
-    character : Character = {
+export class WizardComponent {
+    wizard : Wizard = {
     school: "Hogwartz",
     name : 'Harry Potter'
   };
+  wizards = WIZARDS;
 }

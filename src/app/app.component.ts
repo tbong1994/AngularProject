@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CharacterDetailComponent } from './character-detail.component';
-import { Character } from './character';
+import { WizardComponent } from './wizard.component/wizard.component';
+import { Wizard } from './wizard.component/wizard';
 
 @Component({
   selector: 'app-root',
