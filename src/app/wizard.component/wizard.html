@@ -1,7 +1,8 @@
 
 <div>
-  <p>{{wizard.name}} from {{wizard.school}}</p>
   <ul>
-    <li *ngFor="let wizard of wizards"></li>
+    <li class = "wizardList" *ngFor="let wizard of wizards">
+      <span>{{wizard.name}} from {{wizard.house}}</span>
+    </li>
   </ul>
 </div>

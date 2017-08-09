@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { Wizard } from './wizard';
 
 const WIZARDS: Wizard[] = [
-  { school:'Hogwartz', name: 'Harry Potter' },
-  { school:'Hogwartz', name: 'Ronald Weasley' },
-  { school:'Hogwartz', name: 'Hermione Granger' },
-  { school:'Hogwartz', name: 'Ginny Weasley' },
-  { school:'Hogwartz', name: 'Severus Snape' },
-  { school:'Hogwartz', name: 'Sirius Black' },
-  { school:'Hogwartz', name: 'Remus Lupin' },
-  { school:'Hogwartz', name: 'Petter Pettigrew' },
-  { school:'Hogwartz', name: 'Luna Lovegood' },
-  { school:'Hogwartz', name: 'Dumbledore' }
+  { house: 'Gryffindor', name: 'Harry Potter' },
+  { house: 'Gryffindor', name: 'Ronald Weasley' },
+  { house: 'Gryffindor', name: 'Hermione Granger' },
+  { house: 'Gryffindor', name: 'Ginny Weasley' },
+  { house: 'Slytherin', name: 'Severus Snape' },
+  { house: 'Gryffindor', name: 'Sirius Black' },
+  { house: 'Gryffindor', name: 'Remus Lupin' },
+  { house: 'Gryffindor', name: 'Petter Pettigrew' },
+  { house: 'HufflePuff', name: 'Luna Lovegood' },
+  { house: 'Gryffindor', name: 'Dumbledore' }
 ];
 
 
@@ -23,7 +23,7 @@ const WIZARDS: Wizard[] = [
 
 export class WizardComponent {
     wizard : Wizard = {
-    school: "Hogwartz",
+    house: "Gryffindor",
     name : 'Harry Potter'
   };
   wizards = WIZARDS;

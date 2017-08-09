@@ -2,6 +2,6 @@ import { Component } from '@angular/core';
 
 
 export class Wizard {
-  school: string;
+  house: string;
   name: string;
 }
