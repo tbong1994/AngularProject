@@ -1,8 +1,9 @@
 
 <div>
-  <ul>
+  <ul class ="wizardListParent">
     <li class = "wizardList" *ngFor="let wizard of wizards">
-      <span>{{wizard.name}} from {{wizard.house}}</span>
+      <span class = "center">{{wizard.getName()}} from {{wizard.getHouse()}}</span>
+      <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
     </li>
   </ul>
 </div>
