@@ -1,0 +1,34 @@
+{
+  "name": "ang2-parallax",
+  "homepage": "https://github.com/allenRoyston/ang2-parallax",
+  "authors": [
+    "allen royston <allen.acr@gmail.com>"
+  ],
+  "description": "A parallax module built for Angular 2 components.",
+  "main": "",
+  "keywords": [
+    "angular2",
+    "directives",
+    "parallax",
+    "allen",
+    "royston"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "8db50eaf26",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8db50eaf2659e208a4ce6bc6c7c8ecf7105e5ae0"
+  },
+  "_source": "https://github.com/allenRoyston/ang2-parallax.git",
+  "_target": "*",
+  "_originalSource": "ang2-parallax",
+  "_direct": true
+}

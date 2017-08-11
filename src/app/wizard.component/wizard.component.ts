@@ -11,10 +11,12 @@ export class WizardComponent {
   wizards = WIZARDS;
 }
 
-let harryPotter = new Wizard('../../assets/img/harrypotter.jpg','Gryffindor','Harry Potter','wizardFace harrysFace');
+let harryPotter = new Wizard('../../assets/img/harrypotter.jpg','Gryffindor','Harry Potter','wizardFace');
 let ronaldWeasley = new Wizard('../../assets/img/ron.jpg','Gryffindor','Ronald Weasley','wizardFace');
 let hermioneGranger = new Wizard('../../assets/img/hermione.jpg','Gryffindor','Hermione Granger','wizardFace');
+let severusSnape = new Wizard('../../assets/img/snape.jpg','Gryffindor','Hermione Granger','wizardFace');
+let voldemort = new Wizard('../../assets/img/voldemort.jpg','Gryffindor','Hermione Granger','wizardFace');
 
 const WIZARDS: Wizard[] = [
-  ronaldWeasley,hermioneGranger, harryPotter
+  harryPotter,ronaldWeasley,hermioneGranger, severusSnape, voldemort
 ];

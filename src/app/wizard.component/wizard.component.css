@@ -7,31 +7,27 @@
  font-size: 20px;
  text-shadow: 2px 2px 2px #b3b3b3;
  display: block;
- padding-right: 20px;
 }
+.wizardList > img 
+{
+    display: block;
+    border: 10px solid sienna;
+    width: 100%;
+    height: 50%;
+}
+.wizardList > span:hover{
+    cursor: pointer;
+}
+.wizardList > span:hover + img,  .wizardList > img:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 15px 5px grey;
+}
+
 .center
 {
     text-align: center;
 }
-.harrysFace
-{
-    width: inherit !important;
-    height: 30%;
-    display: block;
-}
-.harrysFace:hover{
-    cursor: pointer;
-}
-.wizardFace
-{
-    width: 100%;
-    height: 30%;
-    display: block;
-}
-.wizardFace:hover{
-    cursor: pointer;
-}
 .wizardListParent
 {
-    display: inline-flex;
+    display: flex;
 }

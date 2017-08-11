@@ -5,15 +5,16 @@
 }
 /*END FONTS*/
 
+/*GLOBAL PROPERTIES*/
+*{
+  cursor: url("../assets/img/elderwand.png") 2 2, auto;
+}
 /*START HEADER  */
 #headerDiv
 {
-  background-image: url("../assets/img/greathall.jpg");
-  background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  padding-top: 30px;
-  height: 700px;
+  padding-top: 5%;
   opacity: 0.83;
 }
 h1
@@ -23,7 +24,7 @@ h1
   font-size: 150px;
   color: darkgoldenrod;
   text-align: center;
-  text-shadow: 5px 5px 5px #808080;
+  text-shadow: 10px 10px 10px #808080;
 }
 
 /*END HEADER  */
