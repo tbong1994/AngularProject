@@ -19,7 +19,7 @@ export class WizardComponent implements OnInit {
     // this.wizards = wizService.getWizards(); //constructor should not have complex logic(ie; data access method, etc). 
   }
   getWizards(): void{
-    this.wizService.getWizards().then(WIZARDS => this.wizards = WIZARDS);
+    this.wizService.getWizards().then(WIZARDS => this.wizards = WIZARDS); //getWizards() from the service class returns a promise, not the array itself
   }
 }
 
