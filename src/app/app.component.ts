@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { WizardComponent } from './wizard.component/wizard.component';
 import { Wizard } from './wizard.component/wizard';
-import { ng2parallax } from './bower_components/ang2-parallax/ng2Parallax';
+import { ng2parallax } from 'ang2-parallax/ng2parallax';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({

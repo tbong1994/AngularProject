@@ -5,7 +5,7 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 /*components, libraries*/ 
-import { ng2parallax } from './bower_components/ang2-parallax/ng2Parallax';
+import { ng2parallax } from 'ang2-parallax/ng2parallax';
 import { AppComponent } from './app.component';
 import { WizardComponent } from './wizard.component/wizard.component';
 

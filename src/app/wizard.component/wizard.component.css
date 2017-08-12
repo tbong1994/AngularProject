@@ -7,12 +7,13 @@
  font-size: 20px;
  text-shadow: 2px 2px 2px #b3b3b3;
  display: block;
+ margin: 0px;
+ padding: 5px;
 }
 .wizardList > img 
 {
     display: block;
-    border: 10px solid sienna;
-    width: 100%;
+    width: 50%;
     height: 50%;
 }
 .wizardList > span:hover{
@@ -20,7 +21,7 @@
 }
 .wizardList > span:hover + img,  .wizardList > img:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 15px 5px grey;
+    box-shadow: 10px 10px 15px 5px darkgray;
 }
 
 .center
