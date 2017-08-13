@@ -5,6 +5,9 @@ import { WIZARDS } from './wizard.component';
 @Injectable()
 export class WizardService {
     getWizards(): Promise<Wizard[]>{
-        return Promise.resolve(WIZARDS); //return as a promise
+        return Promise.resolve(WIZARDS);
+    }
+    getWizard(name: string): Promise<Wizard>{
+        return this.getWizards().then(WIZARDS => WIZARDS.find(wizard => wizard.name === name));
     }
 }

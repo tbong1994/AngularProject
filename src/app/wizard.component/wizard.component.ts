@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
 import { Wizard } from './wizard';
 import { WizardService } from './wizard.service';
-import { OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Location }                 from '@angular/common';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'wizard',
@@ -11,18 +13,27 @@ import { OnInit } from '@angular/core';
 })
 
 export class WizardComponent implements OnInit {
-  public wizards;
+  private wizards;
+  private wizard;
+  private wizardService: WizardService;
+  private route: ActivatedRoute;
+  private location : Location;
+  
   ngOnInit(): void {
+    this.route.paramMap
+    .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('name'))).subscribe(wizard => this.wizard = wizard);
     this.getWizards();
   }
   constructor(private wizService: WizardService){
     // this.wizards = wizService.getWizards(); //constructor should not have complex logic(ie; data access method, etc). 
   }
   getWizards(): void{
-    this.wizService.getWizards().then(WIZARDS => this.wizards = WIZARDS); //getWizards() from the service class returns a promise, not the array itself
+    this.wizService.getWizards().then(wizards => this.wizards = wizards); //getWizards() from the service class returns a promise, not the array itself
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
-
 let harryPotter = new Wizard('../../assets/img/harrypotter.jpg','Gryffindor','Harry Potter','wizardFace');
 let ronaldWeasley = new Wizard('../../assets/img/ron.jpg','Gryffindor','Ronald Weasley','wizardFace');
 let hermioneGranger = new Wizard('../../assets/img/hermione.jpg','Gryffindor','Hermione Granger','wizardFace');

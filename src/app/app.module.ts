@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
-
+import { RouterModule} from '@angular/router';
+import { AppRouterModule } from './app.routing-module';
 
 /*components, libraries*/ 
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
@@ -24,23 +24,9 @@ import { DashboardComponent } from './dashboard.component';
     BrowserModule,
     FormsModule,
     NgbModule,
-    RouterModule.forRoot([
-    {
-      path: 'dashboard',
-      component: DashboardComponent
-    },
-    {
-      path: 'wizards',
-      component: WizardComponent
-    },
-    {
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-    }
-  ])   
+    AppRouterModule
   ],
-  providers: [WizardService],
-  bootstrap: [AppComponent]
+    providers: [WizardService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
