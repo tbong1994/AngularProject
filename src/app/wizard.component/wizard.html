@@ -1,10 +1,10 @@
 
 <div>
   <ul class ="wizardListParent">
-    <a class = "wizardList" *ngFor="let wizard of wizards" [routerLink]="['/wizard', wizard.name]"  class="col-1-4">
+    <a class = "wizardList" *ngFor="let wizard of wizards" [routerLink]="['/wizard', wizard.name]">
       <span class = "center">{{wizard.getName()}} from {{wizard.getHouse()}}</span>
       <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
     </a>
   </ul>
+  <button (click)="goBack()">Back</button>
 </div>
-<button (click)="goBack()">Back</button>

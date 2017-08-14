@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Wizard } from './wizard';
-import { WIZARDS } from './wizard.component';
+import { WIZARDS } from './mock-wizards';
 
 @Injectable()
 export class WizardService {

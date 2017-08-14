@@ -11,8 +11,6 @@ import { WizardService } from './wizard.component/wizard.service';
   providers: [WizardService]
 })
 
-
-
 export class DashboardComponent implements OnInit { 
     public wizards : Wizard[] = [];
     
