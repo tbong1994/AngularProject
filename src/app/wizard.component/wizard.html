@@ -1,10 +1,18 @@
 
 <div>
   <ul class ="wizardListParent">
-    <a class = "wizardList" *ngFor="let wizard of wizards" [routerLink]="['/wizard', wizard.name]">
-      <span class = "center">{{wizard.getName()}} from {{wizard.getHouse()}}</span>
-      <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
-    </a>
+    <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
+      <div class="nameAndFaceDiv">
+        <span class = "center">{{wizard.getName()}} from {{wizard.getHouse()}}</span>
+        <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
+      </div>
+    </li>
+      <div *ngIf="selectedWizard">
+        <h2>
+          {{selectedWizard.name | uppercase}} Selected!
+        </h2>
+        <button (click)="goToDetail()">View Details</button>
+      </div>
   </ul>
   <button (click)="goBack()">Back</button>
 </div>

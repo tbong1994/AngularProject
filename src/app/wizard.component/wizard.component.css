@@ -1,25 +1,16 @@
 .wizardList
 {
- background-color: auto;
- align-content: middle;
- font-family: 'Lobster Two', cursive; 
- color: darkgoldenrod;  
- font-size: 20px;
- text-shadow: 2px 2px 2px #b3b3b3;
- display: block;
- margin: 0px;
- padding: 5px;
+    display: inline-block;
 }
-.wizardList > img 
+.nameAndFaceDiv > img 
 {
-    display: block;
-    width: 50%;
-    height: 50%;
+    display: inherit;
+    width: 200px;
 }
-.wizardList > span:hover{
+.nameAndFaceDiv > span:hover{
     cursor: pointer;
 }
-.wizardList > span:hover + img,  .wizardList > img:hover {
+.nameAndFaceDiv > span:hover + img,  .nameAndFaceDiv > img:hover {
     cursor: pointer;
     box-shadow: 10px 10px 15px 5px darkgray;
 }
@@ -30,5 +21,21 @@
 }
 .wizardListParent
 {
-    display: flex;
+    display: inline-block;
+    align-content: middle;
+    font-family: 'Lobster Two', cursive; 
+    color: darkgoldenrod;  
+    text-shadow: 1px 1px 1px #b3b3b3;
+    flex-wrap: nowrap;
+}
+.nameAndFaceDiv{
+    background-color: auto;
+    align-content: middle;
+    font-family: 'Lobster Two', cursive; 
+    color: darkgoldenrod;  
+    font-size: 20px;
+    display: block;
+    width: auto;
+    margin: 5px;
+    padding: 5px;
 }

@@ -1,7 +1,7 @@
 import { Wizard } from './wizard';
 import { WizardService } from './wizard.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
@@ -19,7 +19,8 @@ export class WizardComponent implements OnInit {
   private wizardService: WizardService;
   private route: ActivatedRoute;
   private location : Location;
-  
+  private selectedWizard : Wizard;
+
   ngOnInit(): void {
     this.getWizards();
     this.route.paramMap
@@ -28,7 +29,7 @@ export class WizardComponent implements OnInit {
   getWizard(name: string): void{
     this.wizardService.getWizard(name).then(wizard => this.wizard = wizard);
   }
-  constructor(private wizService: WizardService){
+  constructor(private router: Router, private wizService: WizardService){
     //constructor should not have complex logic(ie; data access method, etc). 
   }
   getWizards(): void{
@@ -36,5 +37,11 @@ export class WizardComponent implements OnInit {
   }
   goBack(): void {
     this.location.back();
+  }
+  onSelect( wizard: Wizard){
+    this.selectedWizard = wizard;
+  }
+  goToDetail(): void{
+    this.router.navigate(['/wizard', this.selectedWizard.name]);
   }
 }
