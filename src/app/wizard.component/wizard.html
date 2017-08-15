@@ -1,4 +1,11 @@
 
+
+<div *ngIf="selectedWizard" class ="selectedWizard">
+  <h2>
+    {{selectedWizard.name | uppercase}} Selected!
+  </h2>
+  <button (click)="goToDetail()">View Details</button>
+</div>
 <div>
   <ul class ="wizardListParent">
     <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
@@ -7,12 +14,6 @@
         <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
       </div>
     </li>
-      <div *ngIf="selectedWizard">
-        <h2>
-          {{selectedWizard.name | uppercase}} Selected!
-        </h2>
-        <button (click)="goToDetail()">View Details</button>
-      </div>
   </ul>
 </div>
 <!-- <button (click)="goBack()">Back</button> -->

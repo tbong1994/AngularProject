@@ -22,7 +22,8 @@
 .wizardListParent
 {
     display: inline-block;
-    align-content: middle;
+    text-align: center;
+    align-content: center;
     font-family: 'Lobster Two', cursive; 
     color: darkgoldenrod;  
     text-shadow: 1px 1px 1px #b3b3b3;
@@ -30,7 +31,7 @@
 }
 .nameAndFaceDiv{
     background-color: auto;
-    align-content: middle;
+    align-content: center;
     font-family: 'Lobster Two', cursive; 
     color: darkgoldenrod;  
     font-size: 20px;
@@ -38,4 +39,10 @@
     width: auto;
     margin: 10px;
     padding: 5px;
+}
+.selectedWizard{
+    text-align: center;
+    color: darkgoldenrod;
+    text-shadow: 1px 1px 1px #b3b3b3;
+    font-family: 'Lobster Two', cursive; 
 }

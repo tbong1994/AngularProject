@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { WizardComponent } from './wizard.component/wizard.component';
 import { WizardService } from './wizard.component/wizard.service';
 import { DashboardComponent } from './dashboard.component';
-import { SelectedWizardComponent } from './wizard.component/selected-wizard.component';
+import { SelectedWizardComponent } from './selected-wizard.component/selected-wizard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { SelectedWizardComponent } from './wizard.component/selected-wizard.comp
     NgbModule,
     AppRouterModule
   ],
-    providers: [WizardService],
+    providers: [WizardService, WizardComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
