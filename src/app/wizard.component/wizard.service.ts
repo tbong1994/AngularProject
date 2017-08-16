@@ -16,7 +16,7 @@ export class WizardService {
 
     //returns a wizard specified by the name.
     getWizard(name: string): Promise<Wizard>{
-        const url = `${this.wizardsUrl}/$name`;
+        const url = `${this.wizardsUrl}/${name}`;
         return this.http.get(url).toPromise().then(response => response.json().data as Wizard).catch(this.handleError);
     }
 
