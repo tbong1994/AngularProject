@@ -1,3 +1,10 @@
+/*START FONTS  */
+@font-face {
+    font-family: harrypotterfont;
+    src: url("../../assets/font/harrypotter.ttf");
+}
+/*END FONTS*/
+
 .wizardList
 {
     display: inline-block;
@@ -14,7 +21,6 @@
     cursor: pointer;
     box-shadow: 10px 10px 15px 5px darkgray;
 }
-
 .center
 {
     text-align: center;
@@ -40,9 +46,21 @@
     margin: 10px;
     padding: 5px;
 }
-.selectedWizard{
+.selectedWizardText{
     text-align: center;
     color: darkgoldenrod;
     text-shadow: 1px 1px 1px #b3b3b3;
-    font-family: 'Lobster Two', cursive; 
+    font-family: harrypotterfont;
+    font-size: 300%;
+}
+.selectedWizardImage{
+    margin-left: 10px;
+    align-content: center;
+}
+button.remove {
+  float:right;
+  margin-top: 2px;
+  margin-right: .8em;
+  background-color: gray !important;
+  color:white;
 }

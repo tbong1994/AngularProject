@@ -15,9 +15,8 @@ import { Location }                 from '@angular/common';
 export class DashboardComponent implements OnInit { 
     public wizards : Wizard[] = [];
     private selectedWizard : Wizard;
-    private location : Location;
-    
-    constructor(private wizService: WizardService, private router: Router) {
+
+    constructor(private wizService: WizardService, private router: Router, private location: Location) {
     }
     ngOnInit(){
         this.wizService.getWizards().then( wizards => this.wizards = wizards.slice(0,3) );

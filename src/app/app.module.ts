@@ -5,6 +5,10 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from '@angular/router';
 import { AppRouterModule } from './app.routing-module';
+import { HttpModule } from '@angular/http';
+
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 
 /*components, libraries*/ 
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
@@ -26,7 +30,9 @@ import { SelectedWizardComponent } from './selected-wizard.component/selected-wi
     BrowserModule,
     FormsModule,
     NgbModule,
-    AppRouterModule
+    AppRouterModule,
+    HttpModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
     providers: [WizardService, WizardComponent],
     bootstrap: [AppComponent]

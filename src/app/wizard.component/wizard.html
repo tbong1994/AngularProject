@@ -1,19 +1,26 @@
 
 
-<div *ngIf="selectedWizard" class ="selectedWizard">
+<div *ngIf="selectedWizard" class ="selectedWizardText">
   <h2>
-    {{selectedWizard.name | uppercase}} Selected!
+    {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
   </h2>
-  <button (click)="goToDetail()">View Details</button>
+  <button (click)="goToDetail()">SELECT</button>
+  <button class ="remove" (click)="remove(selectedWizard); $event.stopPropagation()">Remove Wizard</button>
 </div>
 <div>
   <ul class ="wizardListParent">
     <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
       <div class="nameAndFaceDiv">
-        <span class = "center">{{wizard.getName()}} from {{wizard.getHouse()}}</span>
+        <span class = "center">{{wizard.name}} from {{wizard.house}}</span>
         <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
       </div>
     </li>
   </ul>
+  <div>
+    <label>Wizard Name: </label><input #newWizardName/>
+    <label>Wizard House: </label><input #newWizardHouse/>
+    <label>Wizard Image: </label><input #newWizardFace/>
+    <button (click)="add(newWizardName.value, newWizardHouse.value, newWizardFace.value); newWizardName.value =''">Create</button>
+  </div>
 </div>
-<!-- <button (click)="goBack()">Back</button> -->
+ <button (click)="goBack()">Back</button> 

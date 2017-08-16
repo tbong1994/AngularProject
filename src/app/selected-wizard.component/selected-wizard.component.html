@@ -1,5 +1,5 @@
-<div *ngIf="selectedWizard">
-    <span>{{selectedWizard.name}}</span>
-    <span>{{selectedWizard.house}}</span>
-    <img src = "{{selectedWizard.face}}"/>
+<div *ngIf="selectedWizard" class ="selectedWizardText nameAndFaceDiv">
+    <span>Name: {{selectedWizard.name}}<br> House:{{selectedWizard.house}}</span>
+    <img class ="" src = "{{selectedWizard.face}}"/>
 </div>
+<button (click)="save()">Save</button>

@@ -10,7 +10,7 @@ import 'rxjs/add/operator/switchMap';
 @Component({
     selector : 'selected-wizard',
     templateUrl: './selected-wizard.component.html',
-    styleUrls: [],
+    styleUrls: ['../wizard.component/wizard.component.css'],
     providers: [WizardComponent]
 })
 
@@ -29,5 +29,11 @@ export class SelectedWizardComponent implements OnInit{
 
     setSelectedWizard():void{
         this.selectedWizard = this.wizComponent.getSelectedWizard();
+    }
+    goBack():void{
+        this.location.back();
+    }
+    save():void{
+        this.wizardService.update(this.selectedWizard).then(()=> this.goBack());
     }
 }
