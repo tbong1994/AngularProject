@@ -5,13 +5,15 @@ export class Wizard {
   house: string;
   name: string;
   cssClass: string;
-
+  id: string;
+  
   constructor(face:string, house:string, name:string, cssClass:string)
   {
     this.face = face;
     this.house = house;
     this.name = name;
     this.cssClass = cssClass;
+    this.id = name;
   }
   getName(){
     return this.name;

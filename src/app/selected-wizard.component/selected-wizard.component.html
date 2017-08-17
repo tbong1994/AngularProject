@@ -1,5 +1,10 @@
 <div *ngIf="selectedWizard" class ="selectedWizardText nameAndFaceDiv">
-    <span>Name: {{selectedWizard.name}}<br> House:{{selectedWizard.house}}</span>
+    <span>Name:</span>
+    <span>{{newName}}</span><br>
+    <span> House:{{selectedWizard.house}}</span>
     <img class ="" src = "{{selectedWizard.face}}"/>
+    <span>New Name:</span>
+    <input name ="newName" [(ngModel)]="newName" />
+    <button (click)="save()">Save</button>
+    <button (click) ="goBack()">Cancel</button>
 </div>
-<button (click)="save()">Save</button>

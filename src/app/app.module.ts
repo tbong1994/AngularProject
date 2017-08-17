@@ -30,9 +30,9 @@ import { SelectedWizardComponent } from './selected-wizard.component/selected-wi
     BrowserModule,
     FormsModule,
     NgbModule,
-    AppRouterModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AppRouterModule,
   ],
     providers: [WizardService, WizardComponent],
     bootstrap: [AppComponent]

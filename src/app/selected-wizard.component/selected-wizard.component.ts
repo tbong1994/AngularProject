@@ -11,16 +11,23 @@ import 'rxjs/add/operator/switchMap';
     selector : 'selected-wizard',
     templateUrl: './selected-wizard.component.html',
     styleUrls: ['../wizard.component/wizard.component.css'],
-    providers: [WizardComponent]
+    providers: [WizardService]
 })
 
 export class SelectedWizardComponent implements OnInit{
     @Input() selectedWizard: Wizard;
 
+    public newName:string;
+
     ngOnInit(){
+        //grab selected wizard
         this.route.paramMap
         .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('name')))
         .subscribe(wizard => this.selectedWizard = wizard);
+        //set initial name
+        this.route.paramMap
+        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('name')))
+        .subscribe(wizard => this.newName = wizard.name);
     }
      constructor(private wizardService: WizardService,
         private route: ActivatedRoute,
@@ -29,6 +36,9 @@ export class SelectedWizardComponent implements OnInit{
 
     setSelectedWizard():void{
         this.selectedWizard = this.wizComponent.getSelectedWizard();
+    }
+    setName(): void{
+        this.newName = this.selectedWizard.name;
     }
     goBack():void{
         this.location.back();

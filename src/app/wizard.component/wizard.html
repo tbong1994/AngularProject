@@ -16,10 +16,9 @@
       </div>
     </li>
   </ul>
-  <div>
+  <div class ="wizardListParent">
     <label>Wizard Name: </label><input #newWizardName/>
     <label>Wizard House: </label><input #newWizardHouse/>
-    <label>Wizard Image: </label><input #newWizardFace/>
     <button (click)="add(newWizardName.value, newWizardHouse.value, newWizardFace.value); newWizardName.value =''">Create</button>
   </div>
 </div>

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class WizardService {
     private wizardsUrl = 'api/wizards';
+    private selectedWizardUrl = 'api/wizard';
     private headers = new Headers({'Content-type': 'application/json'});
     constructor(private http: Http){}
 
@@ -21,7 +22,7 @@ export class WizardService {
     }
 
     private handleError(error: any): Promise<any>{
-        console.error('service error occurred', error);
+        console.error(error.message, error);
         return Promise.reject(error.message || error);
     }
 
