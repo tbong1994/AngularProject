@@ -19,9 +19,10 @@ export class WizardComponent implements OnInit {
   @Input() _wizard: Wizard;
   private wizards : Wizard[];
   private selectedWizard : Wizard;
-
+  private wizardImageFiles = [];
   ngOnInit(): void {
     this.getWizards();
+    this.getWizardImageFiles();
   }
   constructor(private router: Router, private wizService: WizardService, private location: Location){
     //constructor should not have complex logic(ie; data access method, etc). 
@@ -29,6 +30,10 @@ export class WizardComponent implements OnInit {
 
   getWizards(): void{
     this.wizService.getWizards().then(wizards => this.wizards = wizards); //getWizards() from the service class returns a promise, not the array itself
+  }
+
+  getWizardImageFiles(): void{
+    this.wizService.getWizardImageFiles().then(wizardImageFiles => this.wizardImageFiles = wizardImageFiles);
   }
 
   getSelectedWizard(){
@@ -47,10 +52,10 @@ export class WizardComponent implements OnInit {
     this.router.navigate(['/wizard', this.selectedWizard.name]);
   }
 
-  add(name: string, house:string, face: string): void{
+  add(name: string, house:string): void{
     name = name.trim();
     house = house.trim();
-    face = face.trim();
+    const face = this.wizardImageFiles[Math.random()*(4 - 1) + 1];
     if(!name) {return}
     this.wizService.create(name, house, face)
     .then(wizard => {
@@ -58,6 +63,7 @@ export class WizardComponent implements OnInit {
       this.selectedWizard = null;
     })
   }
+  
   remove(wizard: Wizard): void{
     if(!name){return}
     this.wizService.delete(wizard)
@@ -66,5 +72,4 @@ export class WizardComponent implements OnInit {
       if(this.selectedWizard === wizard){this.selectedWizard = null};
     })
   }
-
 }

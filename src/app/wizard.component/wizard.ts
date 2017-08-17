@@ -6,7 +6,8 @@ export class Wizard {
   name: string;
   cssClass: string;
   id: string;
-  
+  private wizardImageFiles = [];
+
   constructor(face:string, house:string, name:string, cssClass:string)
   {
     this.face = face;
@@ -26,8 +27,5 @@ export class Wizard {
   }
   setHouse(house:string){
     this.house = house;
-  }
-  onClick(){
-    /*TODO: do something when each character is clicked*/ 
   }
 }

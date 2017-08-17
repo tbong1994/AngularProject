@@ -30,12 +30,12 @@ h1
 
 a{
   font-family: harrypotterfont;
-  font-size: 50px;
+  font-size: 80px;
   color: darkgoldenrod;
   text-shadow: 10px 15px 15px 15px #808080;
-  text-align: center;
   width: 100%;
-  text-decoration: none;
+  /* text-decoration: none; */
+  margin: 15px 15px 15px 15px;
 }
 /*END HEADER  */
 p
@@ -45,4 +45,6 @@ p
  font-family: 'Lobster Two', cursive; 
  color: darkgoldenrod;  
 }
-
+nav{
+  text-align: center;
+}

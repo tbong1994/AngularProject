@@ -5,11 +5,15 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class WizardService {
-    private wizardsUrl = 'api/wizards';
-    private selectedWizardUrl = 'api/wizard';
+    private wizardsUrl = 'api/wizards'; //url must match the mock database variable name
+    private wizardImageFilesUrl = 'api/wizardImageFiles';
     private headers = new Headers({'Content-type': 'application/json'});
+    private wizardImageFiles = [];
     constructor(private http: Http){}
 
+    getWizardImageFiles(): Promise<string[]>{
+        return this.http.get(this.wizardImageFilesUrl).toPromise().then(response => response.json().data as string[]).catch(this.handleError);
+    }
     //returns all the wizards
     getWizards(): Promise<Wizard[]>{
         return this.http.get(this.wizardsUrl).toPromise().then(response=> response.json().data as Wizard[]).catch(this.handleError);
@@ -35,10 +39,8 @@ export class WizardService {
     }
 
     create(name: string, house: string, face: string): Promise<Wizard>{
-        
-        //get from user
         const cssClass:string = '';
-        let wizard : Wizard = new Wizard(name, face,cssClass,house);
+        let wizard : Wizard = new Wizard(face, house, name, cssClass);
 
         const url = `${this.wizardsUrl}/${name}`;
         return this.http.post(url, JSON. stringify(wizard), {headers: this.headers})

@@ -5,6 +5,7 @@
 }
 /*END FONTS*/
 
+/* START WIZARD NAME AND FACE */
 .wizardList
 {
     display: inline-block;
@@ -57,10 +58,41 @@
     margin-left: 10px;
     align-content: center;
 }
-button.remove {
-  float:right;
+
+/* END WIZARD FACE AND NAME */
+
+/* END CREATE WIZARD SECTION */
+.createWizardFont{
+    align-content: center;
+    font-family: 'Lobster Two', cursive; 
+    color: darkgoldenrod;  
+    text-shadow: 1px 1px 1px #b3b3b3;
+    flex-wrap: nowrap;
+    font-size: 40px;
+    text-align: center;
+}
+/* END CREATE WIZARD SECTION */
+/* START BUTTONS */
+
+button.remove, button.select {
   margin-top: 2px;
   margin-right: .8em;
   background-color: gray !important;
   color:white;
 }
+
+button.back {
+    margin-top: 2px;
+    margin-right: .8em;
+    background-color: gray !important;
+    color:white;
+}
+
+button.create{
+    margin-top: 2px;
+    margin-right: .8em;
+    background-color: gray !important;
+    color:white;
+}
+
+/* END BUTTONS */
