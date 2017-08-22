@@ -7,11 +7,7 @@ export class InMemoryDataService implements InMemoryDbService {
       harryPotter,ronaldWeasley,hermioneGranger,severusSnape,voldemort
     ];
     const wizardImageFiles = [
-      '../../assets/img/harrypotter.jpg',
-      '../../assets/img/ron.jpg',
-      '../../assets/img/hermione.jpg',
-      '../../assets/img/snape.jpg',
-      '../../assets/img/voldemort.jpg'
+      harryPotter.face, ronaldWeasley.face, hermioneGranger.face, severusSnape.face, voldemort.face
     ];
     return {wizards, wizardImageFiles};
   }

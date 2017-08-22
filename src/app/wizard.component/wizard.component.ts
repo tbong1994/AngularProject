@@ -55,7 +55,7 @@ export class WizardComponent implements OnInit {
   add(name: string, house:string): void{
     name = name.trim();
     house = house.trim();
-    const face = this.wizardImageFiles[Math.random()*(4 - 1) + 1];
+    const face = this.wizardImageFiles[Math.ceil(Math.random()*(4-0 + 0))]; //pick random image
     if(!name) {return}
     this.wizService.create(name, house, face)
     .then(wizard => {
@@ -69,9 +69,7 @@ export class WizardComponent implements OnInit {
     this.wizService.delete(this.selectedWizard)
     .then((wizard) => {
       this.wizards = this.wizards.filter(wiz => wiz !== wizard);
-      if(this.selectedWizard === wizard){
-        wizard = null;
-      }
+      if(this.selectedWizard === wizard){wizard = null;}
     })
   }
 }
