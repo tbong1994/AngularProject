@@ -17,6 +17,7 @@ import { WizardComponent } from './wizard.component/wizard.component';
 import { WizardService } from './wizard.component/wizard.service';
 import { DashboardComponent } from './dashboard.component/dashboard.component';
 import { SelectedWizardComponent } from './selected-wizard.component/selected-wizard.component';
+import { WizardSearchComponent } from './wizard.search.component/wizard.search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SelectedWizardComponent } from './selected-wizard.component/selected-wi
     WizardComponent,
     ng2parallax,
     DashboardComponent,
-    SelectedWizardComponent
+    SelectedWizardComponent,
+    WizardSearchComponent
   ],
   imports: [
     BrowserModule,

@@ -14,3 +14,14 @@
         </li>
     </ul>
 </div>
+<div class = "wizardListParent">
+    <h1>Most Popular Wizards</h1>
+    <div class="">
+      <a *ngFor="let wizard of wizards"  >
+        <!-- <div class="" [routerLink]="['/wizard', wizard.id]"> -->
+          <h4>{{wizard.name}}</h4>
+        <!-- </div> -->
+      </a>
+    </div>
+</div>
+<wizard-search></wizard-search>
