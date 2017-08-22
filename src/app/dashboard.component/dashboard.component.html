@@ -1,0 +1,17 @@
+<div *ngIf="selectedWizard" class ="selectedWizardText">
+    <h2>
+      {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
+    </h2>
+    <button class ="select" (click)="goToDetail()">SELECT</button>
+    <button class ="remove" (click)="remove(selectedWizard); $event.stopPropagation()">Remove Wizard</button>
+</div>
+<div>
+    <ul class ="wizardListParent">
+        <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
+        <div class="nameAndFaceDiv">
+            <span class = "center">{{wizard.name}} from {{wizard.house}}</span>
+            <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
+        </div>
+        </li>
+    </ul>
+</div>

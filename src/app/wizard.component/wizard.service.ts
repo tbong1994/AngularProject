@@ -31,7 +31,7 @@ export class WizardService {
     }
 
     update(wizard : Wizard): Promise<Wizard>{
-        const url =`${this.wizardsUrl}/${wizard.name}`;
+        const url =`${this.wizardsUrl}/${wizard.id}`;
         return this.http.put(url, JSON.stringify(wizard), {headers: this.headers})
         .toPromise()
         .then(()=>wizard)
@@ -41,19 +41,17 @@ export class WizardService {
     create(name: string, house: string, face: string): Promise<Wizard>{
         const cssClass:string = '';
         let wizard : Wizard = new Wizard(face, house, name, cssClass);
-
-        const url = `${this.wizardsUrl}/${name}`;
-        return this.http.post(url, JSON. stringify(wizard), {headers: this.headers})
+        return this.http.post(this.wizardsUrl, JSON. stringify(wizard), {headers: this.headers})
         .toPromise()
         .then(()=> wizard)
         .catch(this.handleError);
     }
     
     delete(selectedWizard: Wizard): Promise<Wizard>{
-        const url = `${this.wizardsUrl}/${selectedWizard.name}`;
+        const url = `${this.wizardsUrl}/${selectedWizard.id}`;
         return this.http.delete(url, {headers: this.headers})
         .toPromise()
-        .then(()=> null)
+        .then(()=> selectedWizard)
         .catch(this.handleError);
     }
 }

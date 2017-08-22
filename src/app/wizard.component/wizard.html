@@ -5,7 +5,7 @@
     {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
   </h2>
   <button class ="select" (click)="goToDetail()">SELECT</button>
-  <button class ="remove" (click)="remove(selectedWizard); $event.stopPropagation()">Remove Wizard</button>
+  <button class ="remove" (click)="remove(); $event.stopPropagation()">Remove Wizard</button>
 </div>
 <div>
   <ul class ="wizardListParent">
@@ -20,6 +20,6 @@
 <div class ="createWizardFont">
   <label>Wizard Name: </label><input #newWizardName/><br>
   <label>Wizard House: </label><input #newWizardHouse/><br>
-  <button class ="create" (click)="add(newWizardName.value, newWizardHouse.value); newWizardName.value =''">Create</button>
+  <button class ="create" (click)="add(newWizardName.value, newWizardHouse.value); newWizardName.value =''; newWizardHouse.value ='';">Create</button>
 </div>
  <button class ="back"(click)="goBack()">Back</button> 

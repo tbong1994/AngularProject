@@ -64,12 +64,14 @@ export class WizardComponent implements OnInit {
     })
   }
   
-  remove(wizard: Wizard): void{
-    if(!name){return}
-    this.wizService.delete(wizard)
-    .then(wizard => {
-      this.wizards.filter(wiz => wiz !== wizard);
-      if(this.selectedWizard === wizard){this.selectedWizard = null};
+  remove(): void{
+    if(!this.selectedWizard.name){return;}
+    this.wizService.delete(this.selectedWizard)
+    .then((wizard) => {
+      this.wizards = this.wizards.filter(wiz => wiz !== wizard);
+      if(this.selectedWizard === wizard){
+        wizard = null;
+      }
     })
   }
 }

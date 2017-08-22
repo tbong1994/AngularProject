@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Wizard } from './wizard.component/wizard';
-import { WizardService } from './wizard.component/wizard.service';
+import { Wizard } from '../wizard.component/wizard';
+import { WizardService } from '../wizard.component/wizard.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Location }                 from '@angular/common';
+import { Location } from '@angular/common';
 
 //DASHBOARD ONLY DISPLAYS THE TOP 3 CHARACTERS
 @Component({
   selector: 'my-dashboard',
-  templateUrl: './wizard.component/wizard.html',
-  styleUrls: ['./wizard.component/wizard.component.css'],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['../wizard.component/wizard.component.css'],
   providers: [WizardService]
 })
 
