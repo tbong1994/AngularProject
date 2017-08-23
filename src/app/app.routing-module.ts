@@ -9,7 +9,7 @@ const appRoute: Routes = [
   {path: 'dashboard',component: DashboardComponent},
   {path: 'wizards', component: WizardComponent},
   {path: '',redirectTo: '/dashboard',pathMatch: 'full'},
-  {path: 'wizard/:name', component: SelectedWizardComponent}
+  {path: 'wizard/:id', component: SelectedWizardComponent}
 ]
 
 @NgModule({

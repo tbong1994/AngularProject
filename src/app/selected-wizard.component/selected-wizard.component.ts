@@ -22,11 +22,11 @@ export class SelectedWizardComponent implements OnInit{
     ngOnInit(){
         //grab selected wizard
         this.route.paramMap
-        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('name')))
+        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('id')))
         .subscribe(wizard => this.selectedWizard = wizard);
         //set initial name
         this.route.paramMap
-        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('name')))
+        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('id')))
         .subscribe(wizard => this.newName = wizard.name);
     }
      constructor(private wizardService: WizardService,
@@ -43,7 +43,8 @@ export class SelectedWizardComponent implements OnInit{
     goBack():void{
         this.location.back();
     }
-    save():void{
+    save(name:string):void{
+        this.selectedWizard.name = name;
         this.wizardService.update(this.selectedWizard).then(()=> this.goBack());
     }
 }

@@ -49,7 +49,7 @@ export class WizardComponent implements OnInit {
   }
 
   goToDetail(): void{
-    this.router.navigate(['/wizard', this.selectedWizard.name]);
+    this.router.navigate(['/wizard', this.selectedWizard.id]);
   }
 
   add(name: string, house:string): void{
