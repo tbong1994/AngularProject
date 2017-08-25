@@ -18,6 +18,9 @@ import { WizardService } from './wizard.component/wizard.service';
 import { DashboardComponent } from './dashboard.component/dashboard.component';
 import { SelectedWizardComponent } from './selected-wizard.component/selected-wizard.component';
 import { WizardSearchComponent } from './wizard.search.component/wizard.search.component';
+import { LoginComponent } from './login.component/login.component';
+import { WelcomePageComponent } from './welcome.page.component/welcome.page.component';
+import { LoginComponentService } from './login.component/login.component.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { WizardSearchComponent } from './wizard.search.component/wizard.search.c
     ng2parallax,
     DashboardComponent,
     SelectedWizardComponent,
-    WizardSearchComponent
+    WizardSearchComponent,
+    LoginComponent,
+    WelcomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,7 @@ import { WizardSearchComponent } from './wizard.search.component/wizard.search.c
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRouterModule,
   ],
-    providers: [WizardService, WizardComponent],
+    providers: [WizardService, WizardComponent,LoginComponentService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

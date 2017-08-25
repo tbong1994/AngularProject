@@ -26,8 +26,11 @@
     "ang2-parallax": "^1.0.2",
     "angular-in-memory-web-api": "^0.3.2",
     "angular2-in-memory-web-api": "0.0.21",
+    "auth0-js": "^8.9.3",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
     "popper.js": "^1.11.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
