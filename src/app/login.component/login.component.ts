@@ -23,6 +23,6 @@ export class LoginComponent implements OnInit{
 
     onLogInClick():void{
         this.token = this.loginService.getClientID();
-        this.router.navigate(['/welcome']);    
+        this.router.navigate(['/welcome']);
     }
 }
