@@ -5,7 +5,8 @@ import { FormsModule }   from '@angular/forms'; // <-- NgModel lives here
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from '@angular/router';
 import { AppRouterModule } from './app.routing-module';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -20,7 +21,13 @@ import { SelectedWizardComponent } from './selected-wizard.component/selected-wi
 import { WizardSearchComponent } from './wizard.search.component/wizard.search.component';
 import { LoginComponent } from './login.component/login.component';
 import { WelcomePageComponent } from './welcome.page.component/welcome.page.component';
-import { LoginComponentService } from './login.component/login.component.service';
+import { LoginServiceComponent } from './login.component/login.component.service';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenGetter: (() => localStorage.getItem('access_token'))
+  }), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -41,7 +48,14 @@ import { LoginComponentService } from './login.component/login.component.service
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRouterModule,
   ],
-    providers: [WizardService, WizardComponent,LoginComponentService],
+    providers: [WizardService, WizardComponent,LoginServiceComponent,
+      {
+        provide: AuthHttp,
+        useFactory: authHttpServiceFactory,
+        deps: [Http, RequestOptions]
+      }
+    
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

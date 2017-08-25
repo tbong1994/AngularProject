@@ -5,6 +5,7 @@ import { ng2parallax } from 'ang2-parallax/ng2parallax';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginServiceComponent } from './login.component/login.component.service';
 
 @Component({
   selector: 'harry-potter',
@@ -15,10 +16,11 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit{
   // title = 'Tour of Harry Potter';
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private loginService: LoginServiceComponent){}
 
   ngOnInit(){
-    this.router.navigate(['/login']).catch(error=>this.handleError(error));
+    this.loginService.login();
+    this.loginService.handleAuthentication();
   }
 
   private handleError(error: any): Promise<any>{

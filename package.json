@@ -26,6 +26,7 @@
     "ang2-parallax": "^1.0.2",
     "angular-in-memory-web-api": "^0.3.2",
     "angular2-in-memory-web-api": "0.0.21",
+    "angular2-jwt": "^0.2.3",
     "auth0-js": "^8.9.3",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",

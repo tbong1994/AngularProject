@@ -1,27 +1,32 @@
 import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginComponentService } from './login.component.service';
+import { LoginServiceComponent } from './login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
     selector: 'login-component',
     templateUrl: './login.component.html',
     styleUrls:['./login.component.css'],
-    providers:[LoginComponentService]
+    providers:[LoginServiceComponent]
 })
 
 export class LoginComponent implements OnInit{
     
-    constructor(private router: Router, private loginService: LoginComponentService, private route: ActivatedRoute ){}
+    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute ){
+    }
     
     private token: string;
     public title = 'Welcome to the Tour of Harry Potter';
+    private username:string;
+    private password:string;
 
     ngOnInit(){
         
     }
 
-    onLogInClick():void{
+    onLogInClick(username:string, password:string):void{
+        this.username = username;
+        this.password = password;
         this.token = this.loginService.getClientID();
         this.router.navigate(['/welcome']);
     }
