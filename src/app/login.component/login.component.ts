@@ -30,4 +30,7 @@ export class LoginComponent implements OnInit{
         this.token = this.loginService.getClientID();
         this.router.navigate(['/welcome']);
     }
+    onCreateAnAccountClick(){
+        this.loginService.login();
+    }
 }
