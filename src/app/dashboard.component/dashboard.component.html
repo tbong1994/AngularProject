@@ -5,7 +5,7 @@
     <button class ="select" (click)="goToDetail()">SELECT</button>
 </div>
 <div>
-    <ul class ="wizardListParent">
+    <ul class ="dashboardWizardListParent">
         <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
         <div class="nameAndFaceDiv">
             <span class = "center">{{wizard.name}} from {{wizard.house}}</span>
@@ -14,14 +14,15 @@
         </li>
     </ul>
 </div>
-<div class = "wizardListParent">
+<div class = "dashboardWizardListParent">
     <h1>Most Popular Wizards</h1>
     <div class="">
-      <a *ngFor="let wizard of wizards"  >
-        <!-- <div class="" [routerLink]="['/wizard', wizard.id]"> -->
+      <a *ngFor="let wizard of wizards" style="font-size: 25px; margin-bottom: 0px; cursor: pointer;" >
+        <div class="" [routerLink]="['/wizard', wizard.id]">
           <h4>{{wizard.name}}</h4>
-        <!-- </div> -->
+        </div>
       </a>
     </div>
 </div>
 <wizard-search></wizard-search>
+<button class ="back"(click)="goBack()">Back</button> 

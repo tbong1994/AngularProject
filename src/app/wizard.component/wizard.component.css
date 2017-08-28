@@ -28,7 +28,15 @@
 }
 .wizardListParent
 {
-    display: inline-block;
+    /* display: inline-block; */
+    text-align: center;
+    align-content: center;
+    font-family: 'Lobster Two', cursive; 
+    color: darkgoldenrod;  
+    text-shadow: 1px 1px 1px #b3b3b3;
+    flex-wrap: nowrap;
+}
+.dashboardWizardListParent{
     text-align: center;
     align-content: center;
     font-family: 'Lobster Two', cursive; 
