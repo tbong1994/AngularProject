@@ -28,4 +28,11 @@ export class Wizard {
   setHouse(house:string){
     this.house = house;
   }
+  toggleState(state: string): void{
+    if(state == 'active'){
+        state = 'inactive';
+    }else{
+        state = 'active';
+    }
+}
 }

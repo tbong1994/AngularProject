@@ -6,12 +6,27 @@ import { WizardService } from '../wizard.component/wizard.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/switchMap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
     selector : 'selected-wizard',
     templateUrl: './selected-wizard.component.html',
     styleUrls: ['../wizard.component/wizard.component.css'],
-    providers: [WizardService]
+    animations:[
+        trigger('wizardState', [
+            state('inactive', style({
+              backgroundColor: '#eee',
+              transform: 'scale(1)'
+            })),
+            state('active',   style({
+              backgroundColor: '#cfd8dc',
+              transform: 'scale(1.1)'
+            })),
+            transition('inactive => active', animate('100ms ease-in')),
+            transition('active => inactive', animate('100ms ease-out'))
+          ])
+    ]
 })
 
 export class SelectedWizardComponent implements OnInit{

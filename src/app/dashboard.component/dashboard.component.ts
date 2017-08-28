@@ -9,24 +9,27 @@ import { Location } from '@angular/common';
   selector: 'my-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['../wizard.component/wizard.component.css'],
-  providers: [WizardService]
 })
 
 export class DashboardComponent implements OnInit { 
+    
     public wizards : Wizard[] = [];
     private selectedWizard : Wizard;
 
-    constructor(private wizService: WizardService, private router: Router, private location: Location) {
-    }
+    constructor(private wizService: WizardService, private router: Router, private location: Location) {}
+
     ngOnInit(){
         this.wizService.getWizards().then( wizards => this.wizards = wizards.slice(0,3) );
     }
+
     goBack(): void {
-    this.location.back();
-  }
+        this.location.back();
+    }
+
     onSelect( wizard: Wizard){
         this.selectedWizard = wizard;
     }
+
     goToDetail(): void{
         this.router.navigate(['/wizard', this.selectedWizard.name]);
     }

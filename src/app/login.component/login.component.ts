@@ -7,7 +7,6 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
     selector: 'login-component',
     templateUrl: './login.component.html',
     styleUrls:['./login.component.css'],
-    providers:[LoginServiceComponent]
 })
 
 export class LoginComponent implements OnInit{

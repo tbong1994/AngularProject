@@ -1,6 +1,6 @@
 <div *ngIf="selectedWizard" class ="selectedWizardText nameAndFaceDiv">
     <span>Name:</span>
-    <span>{{newName}}</span><br>
+    <span [@wizardState] = "selectedWizard.state" (click)="selectedWizard.toggleState('active')">{{newName}}</span><br>
     <span> House:{{selectedWizard.house}}</span>
     <img class ="" src = "{{selectedWizard.face}}"/>
     <span>New Name:</span>

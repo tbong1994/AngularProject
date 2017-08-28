@@ -6,12 +6,10 @@ import { Location }                 from '@angular/common';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
-
 @Component({
   selector: 'wizard',
   templateUrl: './wizard.html',
   styleUrls: ['./wizard.component.css'],
-  providers:[ WizardService]
 })
 
 @Injectable()
