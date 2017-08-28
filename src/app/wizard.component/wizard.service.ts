@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Wizard } from './wizard';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class WizardService {
@@ -9,7 +10,7 @@ export class WizardService {
     private wizardImageFilesUrl = 'api/wizardImageFiles';
     private headers = new Headers({'Content-type': 'application/json'});
     private wizardImageFiles = [];
-    constructor(private http: Http){}
+    constructor(private http: Http , private router: Router){}
 
     getWizardImageFiles(): Promise<string[]>{
         return this.http.get(this.wizardImageFilesUrl).toPromise().then(response => response.json().data as string[]).catch(this.handleError);
@@ -53,5 +54,9 @@ export class WizardService {
         .toPromise()
         .then(()=> selectedWizard)
         .catch(this.handleError);
+    }
+
+    logout() {
+        this.router.navigate(['/login']);
     }
 }

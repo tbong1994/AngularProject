@@ -48,3 +48,15 @@ p
 nav{
   text-align: center;
 }
+
+
+button.logout{
+  margin-top: 2px;
+  margin-right: .8em;
+  background-color: gray !important;
+  color:white;
+  float: right;
+  font-family: harrypotterfont;
+  font-size: 30px;
+  cursor: pointer;
+}

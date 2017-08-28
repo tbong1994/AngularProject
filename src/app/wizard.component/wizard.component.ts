@@ -42,6 +42,10 @@ export class WizardComponent implements OnInit {
     this.location.back();
   }
 
+  logout(): void{
+    this.wizService.logout();
+  }
+
   onSelect( wizard: Wizard){
     this.selectedWizard = wizard;
   }

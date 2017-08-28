@@ -31,8 +31,9 @@ export class Wizard {
   toggleState(state: string): void{
     if(state == 'active'){
         state = 'inactive';
-    }else{
+    }
+    else{
         state = 'active';
     }
-}
+  }
 }

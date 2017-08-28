@@ -1,7 +1,7 @@
 
 <div id="dashboardWizardListParent">
   <div class ="wizardSearchParentDiv">
-    <h4>Wizard Search : </h4>
+    <h4>Search for a wizard</h4>
     <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
   </div>
   <div *ngFor="let wizard of wizards | async" (click)="gotoDetail(wizard)" class="search-result" >

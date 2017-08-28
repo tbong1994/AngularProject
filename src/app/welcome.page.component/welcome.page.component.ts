@@ -3,7 +3,7 @@ import { WizardComponent } from '../wizard.component/wizard.component';
 import { Wizard } from '../wizard.component/wizard';
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { WizardService } from '../wizard.component/wizard.service';
 @Component({
   selector: 'welcome-page',
   templateUrl: './welcome.page.component.html',
@@ -12,4 +12,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export class WelcomePageComponent {
   title = 'Welcome to the Tour of Harry Potter';
+
+  constructor(private wizardService: WizardService){}
+
+  logout(): void{
+    this.wizardService.logout();
+  }
 }

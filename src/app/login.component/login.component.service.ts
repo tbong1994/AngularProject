@@ -61,4 +61,17 @@ export class LoginServiceComponent {
     const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
   }
+
+  public isLoginValid(username:string, password:string) : boolean{
+    /*TODO: Check username and password from the database or something later.*/ 
+
+    /* FOR NOW*/
+    let isValid = false;
+
+    if(username.length != 0 && password.length != 0){
+      isValid=true;
+    }
+    
+    return isValid;
+  }
 }

@@ -7,13 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body class ="login-page">
-
   <h1>{{title}}</h1>
+  <div *ngIf= "isLoginValidated == false">
+    <h1>
+      YOU MUST ENTER USERNAME AND PASSWORD
+    </h1>
+  </div>
   <div style="margin-top:150px;">
     <div class="form">
-      <form class="login-form">
-        <input placeholder = "username" #username/>
-        <input placeholder="password" #password/>
+      <form class="login-form" #loginForm>
+        <input placeholder = "username" #username required/>
+        <input placeholder="password" #password required/>
         <button (click)="onLogInClick(username.value, password.value)">login</button>
         <p class="message">Not registered? <a (click) = "onCreateAnAccountClick()" style ="cursor:pointer;">Create an account</a></p>
       </form>
