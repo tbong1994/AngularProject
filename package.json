@@ -28,10 +28,13 @@
     "angular2-in-memory-web-api": "0.0.21",
     "angular2-jwt": "^0.2.3",
     "auth0-js": "^8.9.3",
+    "body-parser": "^1.17.2",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
+    "express": "^4.15.4",
     "jquery": "^3.2.1",
     "jquery-ui": "^1.12.1",
+    "mongodb": "^2.2.31",
     "popper.js": "^1.11.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"

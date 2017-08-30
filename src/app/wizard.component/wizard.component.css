@@ -57,7 +57,7 @@
 }
 .selectedWizardText{
     text-align: center;
-    color: darkgoldenrod;
+    color: #B8860B;
     text-shadow: 1px 1px 1px #b3b3b3;
     font-family: harrypotterfont;
     font-size: 300%;
@@ -85,7 +85,6 @@
 button.remove, button.select {
   margin-top: 2px;
   margin-right: .8em;
-  background-color: gray !important;
   color:white;
 }
 

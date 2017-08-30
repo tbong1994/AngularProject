@@ -1,5 +1,6 @@
 import { Wizard } from './wizard';
 import { WizardService } from './wizard.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location }                 from '@angular/common';

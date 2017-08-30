@@ -8,8 +8,6 @@ import { AppRouterModule } from './app.routing-module';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
@@ -48,6 +46,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NgbModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
+    NgbModule.forRoot(),
     AppRouterModule,
     BrowserAnimationsModule,
   ],
@@ -57,7 +56,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
         useFactory: authHttpServiceFactory,
         deps: [Http, RequestOptions]
       }
-    
     ],
     bootstrap: [AppComponent]
 })
