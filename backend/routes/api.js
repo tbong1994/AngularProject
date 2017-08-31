@@ -9,10 +9,10 @@ const API = 'https://jsonplaceholder.typicode.com';
 
 
 /* GET api listing. */
+
 router.get('/', (req, res) => {
   res.send('api works');
 });
-
 
 //GET ALL POSTS
 router.get('/posts', (req, res) => {

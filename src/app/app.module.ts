@@ -22,6 +22,8 @@ import { WizardSearchComponent } from './wizard.search.component/wizard.search.c
 import { LoginComponent } from './login.component/login.component';
 import { WelcomePageComponent } from './welcome.page.component/welcome.page.component';
 import { LoginServiceComponent } from './login.component/login.component.service';
+import { PostsComponent} from './api.component/posts.component';
+import { PostsService } from './api.component/posts.service';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -39,6 +41,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     WizardSearchComponent,
     LoginComponent,
     WelcomePageComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppRouterModule,
     BrowserAnimationsModule,
   ],
-    providers: [WizardService, WizardComponent,LoginServiceComponent,
+    providers: [WizardService, WizardComponent,LoginServiceComponent,PostsService,
       {
         provide: AuthHttp,
         useFactory: authHttpServiceFactory,
