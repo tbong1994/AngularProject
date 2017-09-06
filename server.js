@@ -9,6 +9,18 @@ const api = require('./server/routes/api');
 
 const app = express();
 
+//Connect to Database
+const db = require('mysql');
+const con = db.createConnection({
+  host: "localhost",
+  user: "username",
+  password: "password"
+});
+con.connect(function(err){
+  if(err) {console.log(err.message);}
+  console.log("Connected!");
+});
+
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
