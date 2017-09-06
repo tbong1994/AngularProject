@@ -24,6 +24,7 @@ import { WelcomePageComponent } from './welcome.page.component/welcome.page.comp
 import { LoginServiceComponent } from './login.component/login.component.service';
 import { PostsComponent} from './api.component/posts.component';
 import { PostsService } from './api.component/posts.service';
+import { NgbdAlertCloseable } from './login.alert.component/login.alert.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -41,7 +42,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     WizardSearchComponent,
     LoginComponent,
     WelcomePageComponent,
-    PostsComponent
+    PostsComponent,
+    NgbdAlertCloseable
   ],
   imports: [
     BrowserModule,

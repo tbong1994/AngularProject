@@ -14,11 +14,25 @@ const db = require('mysql');
 const con = db.createConnection({
   host: "localhost",
   user: "username",
-  password: "password"
+  password: "password",
+  database: "mydb"
 });
 con.connect(function(err){
   if(err) {console.log(err.message);}
-  console.log("Connected!");
+  else{console.log("table created!");}
+  
+  //db creation
+  // con.query("CREATE DATABASE mydb", function(error, result){
+  //   if(err){console.log(err.message);}
+  //   console.log("Database created");
+  // })
+
+  //db table creation
+  var sql = "CREATE TABLE mydbtable1 (name VARCHAR(255), password VARCHAR(255))";
+  con.query(sql, function(err, result){
+    if(err){console.log(err.message);}
+    else{console.log("table created!");}
+  })
 });
 
 // Parsers for POST data
