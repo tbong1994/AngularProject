@@ -9,7 +9,7 @@ export class PostsService {
 
   // Get all posts from the API
   getAllPosts() {
-    return this.http.get('http://localhost:3000/api/posts')
+    return this.http.get('api/wizards')
       .map(res => res.json());
   }
 }
