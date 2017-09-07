@@ -11,7 +11,7 @@ export class PostsService {
   // Get all posts from the API
   
   getAllPosts() : Observable<String>{
-    return this.http.get('/api/posts')
+    return this.http.get('http://localhost:3000/')
     .map(res => res.json().data);
   }
 }

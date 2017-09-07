@@ -40,8 +40,7 @@ export class WizardComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/posts']);
-    // this.location.back();
+    this.location.back();
   }
 
   logout(): void{

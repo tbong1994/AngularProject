@@ -9,31 +9,6 @@ const api = require('./server/routes/api');
 
 const app = express();
 
-//Connect to Database
-const db = require('mysql');
-const con = db.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Cjsthddl7!",
-  database: "wizards"
-});
-// con.connect(function(err){
-//   if(err) {console.log(err.message);}
-//   else{console.log("Database Connected!");}
-//   //db creation
-//   // con.query("CREATE DATABASE wizards", function(error, result){
-//   //   if(err){console.log(err.message);}
-//   //   console.log("Database created");
-//   // })
-
-//   //db table creation
-//   var sql = "CREATE TABLE mydbtable1 (name VARCHAR(255), password VARCHAR(255))";
-//   con.query(sql, function(err, result){
-//     if(err){console.log(err.message);}
-//     else{console.log("table created!");}
-//   })
-// });
-
 // Parsers for POST data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
