@@ -3,6 +3,7 @@ import { Wizard } from './wizard';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Router } from '@angular/router';
+import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class WizardService {
@@ -58,5 +59,12 @@ export class WizardService {
 
     logout() {
         this.router.navigate(['/login']);
+    }
+
+    getPosts(): Observable<String>{
+        const url = `http://localhost:3000/api/posts`;
+        return this.http.post(url, {headers: this.headers})
+        .map((response)=> response.json().data as String)
+        .catch(this.handleError);
     }
 }

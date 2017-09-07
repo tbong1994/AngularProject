@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PostsService {
@@ -8,8 +9,9 @@ export class PostsService {
   constructor(private http: Http) { }
 
   // Get all posts from the API
-  getAllPosts() {
-    return this.http.get('api/wizards')
-      .map(res => res.json());
+  
+  getAllPosts() : Observable<String>{
+    return this.http.get('/api/posts')
+    .map(res => res.json().data);
   }
 }

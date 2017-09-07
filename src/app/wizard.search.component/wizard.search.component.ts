@@ -42,7 +42,7 @@ export class WizardSearchComponent implements OnInit {
                             ?this.wizSearchService.search(term) // return the http search observable
                             :Observable.of<Wizard[]>([])) // or the observable of empty heroes if there was no search term
                         .catch(error => {console.log(error);
-                        return Observable.of<Wizard[]>([])});
+        return Observable.of<Wizard[]>([])});
     }
 
     gotoDetail(wizard: Wizard): void {
