@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { $ } from 'jquery';
 
 @Component({
     selector: 'login-component',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit{
     onLogInClick(username:string, password:string):void{
         if(!this.isLoginValid(username, password)){ //if login is not valid
             this.isLoginValidated = false;
+            $('#loginAlert').prop('display','');
             return;
         }
         this.isLoginValidated = true;
