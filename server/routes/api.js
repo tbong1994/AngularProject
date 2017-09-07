@@ -37,21 +37,19 @@ router.get('/posts', (req, res) => {
     .catch(error => {
         res.status(500).send(error)
     });
+    res.send('test');
 });
 
-router.get('/wizards', (req, res) => {
+router.get('/test', (req, res) => {
     query = "SELECT * FROM wizards"; //get all wizards from the database.
-    responseToClient;
     con.query(query, (err, response) => {
         if(err){
             console.log(err.message);
             return;
         }
-        console.log(response);
-        responseToClient = response;
+        res.send(response);
         con.end();
     });
-    res.json(responseToClient);
 });
 
 router.put('/create', (req, res)=>{
