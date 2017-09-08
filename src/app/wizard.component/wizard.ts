@@ -8,7 +8,7 @@ export class Wizard {
   id: string;
   private wizardImageFiles = [];
 
-  constructor(face:string, house:string, name:string, cssClass:string)
+  constructor(name:string, house:string, face:string, cssClass:string)
   {
     this.face = face;
     this.house = house;

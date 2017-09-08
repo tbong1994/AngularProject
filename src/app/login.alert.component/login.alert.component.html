@@ -1,2 +1,3 @@
 
-<ngb-alert id ="loginAlert" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+
+<ngb-alert id ="loginAlert" [dismissible] = "true" [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>

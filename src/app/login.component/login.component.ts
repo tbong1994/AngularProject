@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { $ } from 'jquery';
+import { AuthHttp } from 'angular2-jwt';
 
 @Component({
     selector: 'login-component',
@@ -12,7 +12,7 @@ import { $ } from 'jquery';
 
 export class LoginComponent implements OnInit{
     
-    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute ){
+    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute, private authHttp: AuthHttp ){
     }
     
     private token: string;
@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit{
     onLogInClick(username:string, password:string):void{
         if(!this.isLoginValid(username, password)){ //if login is not valid
             this.isLoginValidated = false;
-            $('#loginAlert').prop('display','');
             return;
         }
         this.isLoginValidated = true;
@@ -37,6 +36,14 @@ export class LoginComponent implements OnInit{
         this.password = password;
         this.token = this.loginService.getClientID();
         this.router.navigate(['/welcome']);
+        // let header = new Headers();
+        // header.append('Content-type', 'application/json');
+        // this.authHttp.get('http://localhost:3000/api/login')
+        // .map(res => res.json())
+        // .subscribe(()=>{
+        //     err => console.log(err);
+        //     () => console.log('Request Complete');
+        // });
     }
     
     onCreateAnAccountClick(){

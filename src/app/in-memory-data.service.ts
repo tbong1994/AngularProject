@@ -13,8 +13,8 @@ export class InMemoryDataService implements InMemoryDbService {
   }
 }
 
-let harryPotter = new Wizard('../../assets/img/harrypotter.jpg','Gryffindor','Harry Potter','wizardFace');
-let ronaldWeasley = new Wizard('../../assets/img/ron.jpg','Gryffindor','Ronald Weasley','wizardFace');
-let hermioneGranger = new Wizard('../../assets/img/hermione.jpg','Gryffindor','Hermione Granger','wizardFace');
-let severusSnape = new Wizard('../../assets/img/snape.jpg','Slytherin','Severus Snape','wizardFace');
-let voldemort = new Wizard('../../assets/img/voldemort.jpg','Slytherin','Voldemort','wizardFace');
+let harryPotter = new Wizard('Harry Potter','Gryffindor','../../assets/img/harrypotter.jpg','wizardFace');
+let ronaldWeasley = new Wizard('Ronald Weasley','Gryffindor','../../assets/img/ron.jpg','wizardFace');
+let hermioneGranger = new Wizard('Hermione Granger','Gryffindor','../../assets/img/hermione.jpg','wizardFace');
+let severusSnape = new Wizard('Severus Snape','Slytherin','../../assets/img/snape.jpg','wizardFace');
+let voldemort = new Wizard('Voldemort','Slytherin','../../assets/img/voldemort.jpg','wizardFace');
