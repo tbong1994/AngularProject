@@ -50,7 +50,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormsModule,
     NgbModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true }),
     NgbModule.forRoot(),
     AppRouterModule,
     BrowserAnimationsModule,
