@@ -36,7 +36,7 @@ router.get('/test', (req, res) => {
             console.log(err.message);
             return;
         }
-        res.send(response);
+        res.send(response.json);
     });
 });
 

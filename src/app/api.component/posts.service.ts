@@ -13,6 +13,12 @@ export class PostsService {
   
   getAllPosts() : Observable<any>{
     return this.http.get('http://localhost:3000/api/test')
-    .map(res => res.json().data);
+    .map(res => res.json())
+    .catch(this.handleError);
+  }
+
+  private handleError(error: any): Observable<any>{
+    console.error(error.message, error);
+    return Observable.of<any[]>([]);
   }
 }
