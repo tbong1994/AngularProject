@@ -7,24 +7,20 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class WizardService {
-    private wizardsUrl = 'api/wizards'; //url must match the mock database variable name
-    private wizardImageFilesUrl = 'api/wizardImageFiles';
+    private wizardsUrl = 'http://localhost:3000/api/wizards'; //url must match the mock database variable name
     private headers = new Headers({'Content-type': 'application/json'});
     private wizardImageFiles = [];
     constructor(private http: Http , private router: Router){}
 
-    getWizardImageFiles(): Promise<string[]>{
-        return this.http.get(this.wizardImageFilesUrl).toPromise().then(response => response.json().data as string[]).catch(this.handleError);
-    }
     //returns all the wizards
     getWizards(): Promise<Wizard[]>{
-        return this.http.get(this.wizardsUrl).toPromise().then(response=> response.json().data as Wizard[]).catch(this.handleError);
+        return this.http.get(this.wizardsUrl).toPromise().then(response=> response.json() as Wizard[]).catch(this.handleError);
     }
 
     //returns a wizard specified by the name.
     getWizard(id: string): Promise<Wizard>{
         const url = `${this.wizardsUrl}/${id}`;
-        return this.http.get(url).toPromise().then(response => response.json().data as Wizard).catch(this.handleError);
+        return this.http.get(url).toPromise().then(response => response.json() as Wizard).catch(this.handleError);
     }
 
     private handleError(error: any): Promise<any>{

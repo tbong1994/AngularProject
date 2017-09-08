@@ -27,7 +27,7 @@ router.get('/posts', (req, res) => {
     res.send('test');
 });
 
-router.get('/test', (req, res) => {
+router.get('/wizards', (req, res) => {
     query = "SELECT * FROM wizards"; //get all wizards from the database.
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

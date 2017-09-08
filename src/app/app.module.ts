@@ -8,8 +8,6 @@ import { AppRouterModule } from './app.routing-module';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
 
 /*components, libraries*/ 
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
@@ -50,7 +48,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FormsModule,
     NgbModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true }),
     NgbModule.forRoot(),
     AppRouterModule,
     BrowserAnimationsModule,
