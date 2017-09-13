@@ -38,6 +38,23 @@ router.get('/wizards', (req, res) => {
         }
         res.send(response);
     });
+    console.log(req);
+});
+
+router.get('/wizard/:name', (req, res) => {
+    const lastSlashIndex = req.originalUrl.lastIndexOf('/');
+    var requestedWizardName = req.originalUrl.substring(lastSlashIndex + 1, req.originalUrl.length); //get wizard's name from the url.
+    requestedWizardName = requestedWizardName.replace('%20',' '); //replace space in the name from the request URL. URL has '%20' for space.
+    query = "SELECT * FROM wizards WHERE name = " + '"' + requestedWizardName + '"'; //specific wizard query.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    db.query(query, (err, response) => {
+        if(err){
+            console.log(err.message);
+            return;
+        }
+        res.send(response);
+    });
 });
 
 router.put('/create', (req, res)=>{

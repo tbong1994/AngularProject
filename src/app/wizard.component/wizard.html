@@ -4,7 +4,7 @@
   <h2>
     {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
   </h2>
-  <label ngbButtonLabel><input type ="checkbox" class ="select" (click)="goToDetail()" ngbButton>SELECT</label>
+  <button class ="select" (click)="goToDetail()" ngbButton>SELECT</button>
   <button class ="remove" (click)="remove(); $event.stopPropagation()" ngbButton>Remove Wizard</button>
 </div>
 <div>

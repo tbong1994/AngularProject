@@ -21,7 +21,6 @@ export class WizardComponent implements OnInit {
   private wizardImageFiles = [];
   ngOnInit(): void {
     this.getWizards();
-    // this.getWizardImageFiles();
   }
   constructor(private router: Router, private wizService: WizardService, private location: Location){
     //constructor should not have complex logic(ie; data access method, etc). 
@@ -30,10 +29,6 @@ export class WizardComponent implements OnInit {
   getWizards(): void{
     this.wizService.getWizards().then(wizards => this.wizards = wizards); //getWizards() from the service class returns a promise, not the array itself
   }
-
-  // getWizardImageFiles(): void{
-  //   this.wizService.getWizardImageFiles().then(wizardImageFiles => this.wizardImageFiles = wizardImageFiles);
-  // }
 
   getSelectedWizard(){
     return this.selectedWizard;
@@ -52,7 +47,7 @@ export class WizardComponent implements OnInit {
   }
 
   goToDetail(): void{
-    this.router.navigate(['/wizard', this.selectedWizard.id]);
+    this.router.navigate(['/wizard', this.selectedWizard.name]);
   }
 
   add(name: string, house:string): void{

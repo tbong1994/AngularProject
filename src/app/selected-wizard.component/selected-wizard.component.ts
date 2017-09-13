@@ -37,7 +37,7 @@ export class SelectedWizardComponent implements OnInit{
     ngOnInit(){
         //grab selected wizard
         this.route.paramMap
-        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('id')))
+        .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('id'))) //get parameter, 'id' should match with wizardService.getWizard() parameter.
         .subscribe(wizard => this.selectedWizard = wizard);
         //set initial name
         this.route.paramMap
