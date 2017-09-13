@@ -18,7 +18,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
 app.use('/api', api);
-
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
@@ -27,8 +26,9 @@ app.get('*', (req, res) => {
 app.all('/*',(req,res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-  res.header("Access-Control-Allow-Methods", "GET, POST","PUT");
+  res.header("Access-Control-Allow-Methods", "GET, POST","PUT", "DELETE");
 });
+
 
 /**
  * Get port from environment and store in Express.

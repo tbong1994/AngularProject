@@ -19,8 +19,8 @@ export class WizardService {
     }
 
     //returns a wizard specified by the name.
-    getWizard(id: string): Promise<Wizard>{
-        const url = `${this.wizardsUrl}/wizard/${id}`;
+    getWizard(name: string): Promise<Wizard>{
+        const url = `${this.wizardsUrl}/wizard/${name}`;
         return this.http.get(url).toPromise().then(response => response.json()[0] as Wizard).catch(this.handleError);
     }
 
@@ -30,16 +30,16 @@ export class WizardService {
     }
 
     update(wizard : Wizard): Promise<Wizard>{
-        const url =`${this.wizardsUrl}/${wizard.id}`;
+        const url =`${this.wizardsUrl}/wizard/${wizard.name}`;
         return this.http.put(url, JSON.stringify(wizard), {headers: this.headers})
         .toPromise()
         .then(()=>wizard)
         .catch(this.handleError);
     }
 
-    create(name: string, house: string, face: string): Promise<Wizard>{
+    create(name: string, house: string, face: string, uniqueID:number): Promise<Wizard>{
         const cssClass:string = '';
-        let wizard : Wizard = new Wizard(face, house, name, cssClass);
+        let wizard : Wizard = new Wizard(face, house, name, cssClass, uniqueID);
         return this.http.post(this.wizardsUrl, JSON. stringify(wizard), {headers: this.headers})
         .toPromise()
         .then(()=> wizard)

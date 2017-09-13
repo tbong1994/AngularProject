@@ -51,11 +51,12 @@ export class WizardComponent implements OnInit {
   }
 
   add(name: string, house:string): void{
+    let uniqueID:number  = 0;
     name = name.trim();
     house = house.trim();
     const face = this.wizardImageFiles[Math.ceil(Math.random()*(4-0 + 0))]; //pick random image
     if(!name) {return}
-    this.wizService.create(name, house, face)
+    this.wizService.create(name, house, face, uniqueID)
     .then(wizard => {
       this.wizards.push(wizard);
       this.selectedWizard = null;

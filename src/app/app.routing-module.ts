@@ -14,7 +14,7 @@ const appRoute: Routes = [
   {path: 'dashboard',component: DashboardComponent},
   {path: 'wizards', component: WizardComponent},
   {path: '',redirectTo: '/login',pathMatch: 'full'},
-  {path: 'wizard/:id', component: SelectedWizardComponent},
+  {path: 'wizard/:name', component: SelectedWizardComponent},
   {path: 'posts', component:PostsComponent}
 ]
 

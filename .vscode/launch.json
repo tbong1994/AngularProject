@@ -18,12 +18,12 @@
             "port": 4200,
             "webRoot": "${workspaceRoot}"
         },
-        // {
-        //     "type": "node",
-        //     "request": "attach",
-        //     "name": "Attach to Chrome",
-        //     "port": 3000
-        // },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 3000
+        },
         {
             "type": "node",
             "request": "launch",
