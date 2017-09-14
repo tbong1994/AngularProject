@@ -33,7 +33,7 @@ export class SelectedWizardComponent implements OnInit{
     @Input() selectedWizard: Wizard;
 
     public newName:string;
-
+    public isNameValidated: boolean;
     ngOnInit(){
         //grab selected wizard
         this.route.paramMap
@@ -58,7 +58,16 @@ export class SelectedWizardComponent implements OnInit{
         this.location.back();
     }
     save(name:string):void{
+        if(!this.isNameValid(name)){
+            return;
+        }
         this.selectedWizard.name = name;
         this.wizardService.update(this.selectedWizard).then(()=> this.goBack());
+    }
+    isNameValid(name:string):boolean{
+        if(/^[a-zA-Z _]*$/g.test(name)){
+            return this.isNameValidated = true;
+        }
+        return this.isNameValidated = false;
     }
 }

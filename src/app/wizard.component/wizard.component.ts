@@ -71,7 +71,4 @@ export class WizardComponent implements OnInit {
       if(this.selectedWizard === wizard){wizard = null;}
     })
   }
-  getPosts(): void{
-    this.wizService.getPosts();
-  } 
 }

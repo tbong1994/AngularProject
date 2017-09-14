@@ -7,9 +7,8 @@ import { Observable }     from 'rxjs/Observable';
 
 @Injectable()
 export class WizardService {
-    private wizardsUrl = 'http://localhost:3000/api'; //url must match the mock database variable name
+    private wizardsUrl = '/api'; //relative url to node project ng build creates the dist folder and default url is 'localhost:3000'
     private headers = new Headers({'Content-type': 'application/json'});
-    private wizardImageFiles = [];
     constructor(private http: Http , private router: Router){}
 
     //returns all the wizards
@@ -22,11 +21,6 @@ export class WizardService {
     getWizard(name: string): Promise<Wizard>{
         const url = `${this.wizardsUrl}/wizard/${name}`;
         return this.http.get(url).toPromise().then(response => response.json()[0] as Wizard).catch(this.handleError);
-    }
-
-    private handleError(error: any): Promise<any>{
-        console.error(error.message, error);
-        return Promise.reject(error.message || error);
     }
 
     update(wizard : Wizard): Promise<Wizard>{
@@ -58,10 +52,10 @@ export class WizardService {
         this.router.navigate(['/login']);
     }
 
-    getPosts(): Observable<String>{
-        const url = `http://localhost:3000/api/posts`;
-        return this.http.post(url, {headers: this.headers})
-        .map((response)=> response.json().data as String)
-        .catch(this.handleError);
+    
+    
+    private handleError(error: any): Promise<any>{
+        console.error(error.message, error);
+        return Promise.reject(error.message || error);
     }
 }

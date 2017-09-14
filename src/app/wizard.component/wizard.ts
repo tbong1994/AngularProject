@@ -5,18 +5,16 @@ export class Wizard {
   house: string;
   name: string;
   cssClass: string;
-  id: string;
-  uniqueID: number;
+  id: number;
   private wizardImageFiles = [];
 
-  constructor(name:string, house:string, face:string, cssClass:string, uniqueID: number)
+  constructor(name:string, house:string, face:string, cssClass:string, id: number)
   {
     this.face = face;
     this.house = house;
     this.name = name;
     this.cssClass = cssClass;
-    this.id = name;
-    this.uniqueID = uniqueID;
+    this.id = id;
   }
   getName(){
     return this.name;
