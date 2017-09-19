@@ -15,13 +15,14 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: rgba(128, 128, 128, 0.23);
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 30px;
   text-align: center;
   vertical-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 10px;
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -38,7 +39,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: goldenrod;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -103,10 +104,9 @@ body {
   background: -moz-linear-gradient(right, #76b852, #8DC26F);
   background: -o-linear-gradient(right, #76b852, #8DC26F);
   background: linear-gradient(to left, #76b852, #8DC26F); */
-  background-image: url("../../assets/img/greathall.jpg");
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;
 }
 h1{
     width: 100%;
@@ -115,4 +115,5 @@ h1{
     color: darkgoldenrod;
     text-align: center;
     text-shadow: 10px 10px 10px #808080;
+    margin-top: 5%;
 }

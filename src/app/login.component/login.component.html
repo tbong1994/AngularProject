@@ -6,20 +6,22 @@
   <title>Sign In with Auth0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+<div *ngIf="isLoginValidated == false">
+  {{alert}}
+</div>
 <body class ="login-page">
   <h1>{{title}}</h1>
-  <div *ngIf="isLoginValidated == false">
-    <login-alert></login-alert>
+  <div id="lock">
   </div>
   <div style="margin-top:150px;">
     <div class="form container">
       <form class="login-form" #loginForm>
-        <input placeholder = "username" #username required/>
-        <input placeholder="password" #password required/>
-        <button (click)="onLogInClick(username.value, password.value)">login</button>
-        <p class="message">Not registered? <a (click) = "onCreateAnAccountClick()" style ="cursor:pointer;">Create an account</a></p>
+        <input placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'"  #username required/>
+        <input placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder='password'"#password required/>
+        <button (click)="onLogInClick(username.value, password.value)">Alohomora</button>
       </form>
     </div>
+    <router-outlet></router-outlet>
   </div>
 </body>
 </html>

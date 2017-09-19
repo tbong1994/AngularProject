@@ -12,7 +12,7 @@ const API = 'https://jsonplaceholder.typicode.com';
 //DB TABLE COLUMNS
 //(name VARCHAR(255), house VARCHAR(255), face VARCHAR(255), cssClass VARCHAR(255)
 
-
+/*GRAB EVERYONE */
 router.get('/wizards', (req, res) => {
     query = "SELECT * FROM wizardsdb"; //get all wizards from the database.
     res.header("Access-Control-Allow-Origin", "*");
@@ -26,6 +26,7 @@ router.get('/wizards', (req, res) => {
     });
 });
 
+/*GRAB ONE WIZARD */
 router.get('/wizard/:name', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -43,6 +44,7 @@ router.get('/wizard/:name', (req, res) => {
     });
 });
 
+/*UPDATE ONE WIZARD */
 router.put('/wizard/:name', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -56,12 +58,21 @@ router.put('/wizard/:name', (req, res) => {
     });
 });
 
-// router.put('/create', (req, res)=>{
-//     query = "INSERT INTO wizards('..', '..', '..', '..')";
-//     db.query(query, (err, res)=>{
-//         if(err){console.log(err.message);return;}
-//         console.log(res.status(200).json());
-//     });
-// });
 
+/*AUTHENTICATE LOGIN */
+router.post('/login/:username/:password', (req,res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    var username = req.body.username;
+    var password = req.body.password;
+    query = "SELECT * FROM login WHERE username = '" + username + "' AND '" + password + "'";
+    db.query(query, (err,response)=>{
+        if(err){
+            console.log(err.message);
+            return;
+        }
+        console.log(response);
+        res.send(response);
+    });
+});
 module.exports = router;

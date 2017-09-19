@@ -10,7 +10,7 @@
     </div>
     <img class ="" src = "{{selectedWizard.face}}"/>
     <span>New Name:</span>
-    <input name ="newName" [(ngModel)]="newName" />
+    <input name ="newName" [(ngModel)]="newName" required />
     <button (click)="save(newName)">Save</button>
     <button (click) ="goBack()">Cancel</button>
 </div>

@@ -19,12 +19,6 @@ export class AppComponent implements OnInit{
   constructor(private router: Router, private loginService: LoginServiceComponent){}
 
   ngOnInit(){
-    // this.loginService.login();
     this.loginService.handleAuthentication();
-  }
-
-  private handleError(error: any): Promise<any>{
-    console.error(error.message, error);
-    return Promise.reject(error.message || error);
   }
 }

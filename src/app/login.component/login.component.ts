@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
+import * as auth0 from 'auth0-js';
+import {ngbAlertConfig} from '../alert.component/alert.component';
 
 @Component({
     selector: 'login-component',
@@ -21,14 +23,17 @@ export class LoginComponent implements OnInit{
 
     public title = 'Welcome to the Tour of Harry Potter';
     public isLoginValidated:boolean;
-    
+    public alert : ngbAlertConfig;
     ngOnInit(){
-        
+       
     }
 
     onLogInClick(username:string, password:string):void{
-        if(!this.isLoginValid(username, password)){ //if login is not valid
+        var some = this.isLoginValid(username,password);
+        if(this.isLoginValid(username, password)){ //if login is not valid
             this.isLoginValidated = false;
+            // this.alert = new ngbAlertConfig();
+            // this.alert.alert.message = "Your username or password is incorrect";
             return;
         }
         this.isLoginValidated = true;
@@ -36,14 +41,6 @@ export class LoginComponent implements OnInit{
         this.password = password;
         this.token = this.loginService.getClientID();
         this.router.navigate(['/welcome']);
-        // let header = new Headers();
-        // header.append('Content-type', 'application/json');
-        // this.authHttp.get('http://localhost:3000/api/login')
-        // .map(res => res.json())
-        // .subscribe(()=>{
-        //     err => console.log(err);
-        //     () => console.log('Request Complete');
-        // });
     }
     
     onCreateAnAccountClick(){
@@ -51,6 +48,9 @@ export class LoginComponent implements OnInit{
     }
 
     public isLoginValid(username:string, password:string): boolean{
-       return this.loginService.isLoginValid(username, password);
+        if(username == '' || password == ''){return false;}
+        this.loginService.isLoginValid(username, password);
+        var d = console.log(this.loginService.isAuthenticated());
+        return this.loginService.isAuthenticated();
     }
 }

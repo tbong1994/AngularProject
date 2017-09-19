@@ -51,8 +51,6 @@ export class WizardService {
     logout() {
         this.router.navigate(['/login']);
     }
-
-    
     
     private handleError(error: any): Promise<any>{
         console.error(error.message, error);
