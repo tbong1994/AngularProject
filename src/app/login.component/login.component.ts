@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
 import * as auth0 from 'auth0-js';
 import {ngbAlertConfig} from '../alert.component/alert.component';
+import {AppService} from '../app.component.service';
 
 @Component({
     selector: 'login-component',
@@ -14,14 +15,12 @@ import {ngbAlertConfig} from '../alert.component/alert.component';
 
 export class LoginComponent implements OnInit{
     
-    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute, private authHttp: AuthHttp ){
+    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute, private authHttp: AuthHttp, private appService: AppService ){
     }
     
     private token: string;
     private username:string;
     private password:string;
-
-    public title = 'Welcome to the Tour of Harry Potter';
     public isLoginValidated:boolean;
     public alert : ngbAlertConfig;
     ngOnInit(){
@@ -29,18 +28,18 @@ export class LoginComponent implements OnInit{
     }
 
     onLogInClick(username:string, password:string):void{
-        var some = this.isLoginValid(username,password);
-        if(!this.isLoginValid(username, password)){ //if login is not valid
-            this.isLoginValidated = false;
-            // this.alert = new ngbAlertConfig();
-            // this.alert.alert.message = "Your username or password is incorrect";
-            return;
-        }
+        // if(!this.isLoginValid(username, password)){ //if login is not valid
+        //     this.isLoginValidated = false;
+        //     this.appService.setIsAuthenticated(this.isLoginValidated);
+        //     // this.alert = new ngbAlertConfig();
+        //     // this.alert.alert.message = "Your username or password is incorrect";
+        //     return;
+        // }
         this.isLoginValidated = true;
+        this.appService.setIsAuthenticated(this.isLoginValidated);
         this.username = username;
         this.password = password;
         this.token = this.loginService.getClientID();
-        this.router.navigate(['/welcome']);
     }
     
     onCreateAnAccountClick(){

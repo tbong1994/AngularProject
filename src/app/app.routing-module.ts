@@ -8,11 +8,11 @@ import { LoginComponent } from './login.component/login.component';
 import { WelcomePageComponent } from './welcome.page.component/welcome.page.component';
 
 const appRoute: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, outlet: 'login'},
   {path: 'welcome', component: WelcomePageComponent},
   {path: 'dashboard',component: DashboardComponent, outlet:'dash'},
-  {path: 'wizards', component: WizardComponent},
-  {path: '',redirectTo: '/login',pathMatch: 'full'},
+  {path: 'wizards', component: WizardComponent, outlet:'display'},
+  {path: '',redirectTo: '/welcome',pathMatch: 'full'},
   {path: 'wizard/:name', component: SelectedWizardComponent}
 ]
 
