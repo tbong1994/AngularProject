@@ -9,6 +9,7 @@ export class LoginServiceComponent {
 
   private wizardsUrl = '/api'; //relative url to node project ng build creates the dist folder and default url is 'localhost:3000'
   private headers = new Headers({'Content-type': 'application/json'});
+  private isValid: boolean = false;
   auth0 = new auth0.WebAuth({
     clientID: 'gcN4GpyJhPL3655VpH2oSURaHFO5ZU7h',
     domain: 'tbong1994.auth0.com',
@@ -66,16 +67,14 @@ export class LoginServiceComponent {
   }
 
   public isLoginValid(username:string, password:string) : boolean{
-    let isValid:boolean = false;
-    if(username == '' || password == ''){return isValid;}
+    if(username == '' || password == ''){return this.isValid;}
     
     // let loginCredentials = JSON.stringify({username, password});
     let loginCredentials = {username,password};
     const url = `${this.wizardsUrl}/login/${username}/${password}`;
     this.http.post(url, loginCredentials, {headers: this.headers})
-    .map(response => response.json() ? isValid=true : isValid=false)
+    .map(response => response.json() ? this.isValid=true : this.isValid=false)
     .subscribe();
-
-    return isValid;
+    return this.isValid;
   }
 }

@@ -46,7 +46,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule,
     HttpModule,
     NgbModule.forRoot(),
     AppRouterModule,

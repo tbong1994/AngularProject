@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit{
 
     onLogInClick(username:string, password:string):void{
         var some = this.isLoginValid(username,password);
-        if(this.isLoginValid(username, password)){ //if login is not valid
+        if(!this.isLoginValid(username, password)){ //if login is not valid
             this.isLoginValidated = false;
             // this.alert = new ngbAlertConfig();
             // this.alert.alert.message = "Your username or password is incorrect";
@@ -50,7 +50,5 @@ export class LoginComponent implements OnInit{
     public isLoginValid(username:string, password:string): boolean{
         if(username == '' || password == ''){return false;}
         this.loginService.isLoginValid(username, password);
-        var d = console.log(this.loginService.isAuthenticated());
-        return this.loginService.isAuthenticated();
     }
 }

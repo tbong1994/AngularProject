@@ -14,7 +14,7 @@ import { LoginServiceComponent } from './login.component/login.component.service
 })
 
 export class AppComponent implements OnInit{
-  // title = 'Tour of Harry Potter';
+  title = 'Expelliarmus';
 
   constructor(private router: Router, private loginService: LoginServiceComponent){}
 
