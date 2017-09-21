@@ -10,7 +10,7 @@ import { WelcomePageComponent } from './welcome.page.component/welcome.page.comp
 const appRoute: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: WelcomePageComponent},
-  {path: 'dashboard',component: DashboardComponent, outlet:'dash'},
+  {path: 'dashboard',component: DashboardComponent},
   {path: 'wizards', component: WizardComponent},
   {path: '',redirectTo: '/login',pathMatch: 'full'},
   {path: 'wizard/:name', component: SelectedWizardComponent}

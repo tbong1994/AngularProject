@@ -1,13 +1,10 @@
 
 <div style="text-align:left">
     <div id="headerDiv">
-        <h1>{{title}}</h1>
         <nav> 
-          <a [routerLink]="[{outlets: {'dash':['dashboard']}}]">Dashboard</a> 
+          <a routerLink="/dashboard">Dashboard</a> 
           <a routerLink="/wizards">Wizards of Hogwartz</a>
           <button class="logout" (click)="logout()">logout</button>
-        </nav>
-        <router-outlet name ="display"></router-outlet> 
-        <router-outlet name ="dash"></router-outlet> 
+        </nav> 
     </div>
 </div>
