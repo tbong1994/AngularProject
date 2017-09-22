@@ -22,6 +22,11 @@ import { WelcomePageComponent } from './welcome.page.component/welcome.page.comp
 import { LoginServiceComponent } from './login.component/login.component.service';
 import { PostsComponent} from './api.component/posts.component';
 import { PostsService } from './api.component/posts.service';
+<<<<<<< HEAD
+=======
+import { ngbAlertConfig } from './alert.component/alert.component';
+import { AppService } from './app.component.service';
+>>>>>>> 78cd590c8d0a1894e96a62336be77a3d9a5453a0
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -49,7 +54,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppRouterModule,
     BrowserAnimationsModule,
   ],
-    providers: [WizardService, WizardComponent,LoginServiceComponent,PostsService,
+    providers: [WizardService, WizardComponent,LoginServiceComponent,PostsService, AppService,
       {
         provide: AuthHttp,
         useFactory: authHttpServiceFactory,

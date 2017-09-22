@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component/login.component.service';
+import { AppService} from './app.component.service';
 
 @Component({
   selector: 'harry-potter',
@@ -14,11 +15,16 @@ import { LoginServiceComponent } from './login.component/login.component.service
 })
 
 export class AppComponent implements OnInit{
-  title = 'Expelliarmus';
-
-  constructor(private router: Router, private loginService: LoginServiceComponent){}
+  title:string = 'Expelliarmus';
+  authenticated : boolean = false;
+  constructor(private router: Router, private loginService: LoginServiceComponent, private appService: AppService){}
 
   ngOnInit(){
     this.loginService.handleAuthentication();
   }
+
+  authenticate():boolean{
+    return this.authenticated = this.appService.getIsAuthenticated();
+  }
+
 }
