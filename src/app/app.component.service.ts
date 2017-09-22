@@ -1,8 +1,14 @@
 
-import { Router } from '@angular/router';
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {Injectable } from '@angular/core';
 
+
+@Injectable()
 export class AppService {
+
+    constructor(private router: Router){}
+
     private isAuthenticated:boolean;
 
     setIsAuthenticated(val:boolean):void{
@@ -10,5 +16,8 @@ export class AppService {
     }
     getIsAuthenticated():boolean{
         return this.isAuthenticated;
+    }
+    logout():void {
+        this.router.navigate(['/login']);
     }
 }

@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'wizard',
+  selector: 'wizard-component',
   templateUrl: './wizard.html',
   styleUrls: ['./wizard.component.css'],
 })
@@ -37,11 +37,7 @@ export class WizardComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  logout(): void{
-    this.wizService.logout();
-  }
-
+  
   onSelect( wizard: Wizard){
     this.selectedWizard = wizard;
   }

@@ -1,0 +1,18 @@
+.btn-primary
+{
+    font-family: harrypotterfont;
+    background-color: rgba(218, 215, 32, 0.44);
+    color: rgba(255, 174, 0, 0.9);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 50px;
+    cursor: pointer;
+    border-color: white;
+    margin: 40px;
+}
+.btn-primary:hover{
+    box-shadow: 5px 5px 5px grey;
+}
+#headerDiv{
+    display: inline-block;
+}

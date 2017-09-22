@@ -48,10 +48,6 @@ export class WizardService {
         .catch(this.handleError);
     }
 
-    logout() {
-        this.router.navigate(['/login']);
-    }
-    
     private handleError(error: any): Promise<any>{
         console.error(error.message, error);
         return Promise.reject(error.message || error);

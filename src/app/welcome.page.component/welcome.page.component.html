@@ -2,17 +2,18 @@
 <div style="text-align:left">
     <div id="headerDiv">
         <nav> 
-            <a routerLink="/dashboard">
-                <label class="btn-primary" ngbButtonLabel>
-                    Dashboard
-                </label>
-            </a>
-            <a routerLink="/wizards">
-                <label class="btn-primary" ngbButtonLabel>
-                    Wizards
-                </label>
-            </a>
-          <button class="logout" (click)="logout()">logout</button>
+            <label class="btn-primary buttons" ngbButtonLabel (click) = "onDashboardClicked()">
+                Dashboard
+            </label>
+            <label class="btn-primary buttons" ngbButtonLabel (click) = "onWizardsClicked()">
+                Wizards
+            </label>
         </nav> 
+        <div *ngIf="dashboardClicked">
+            <my-dashboard></my-dashboard>
+        </div>
+        <div *ngIf="wizardsClicked">
+            <wizard-component></wizard-component>
+        </div>
     </div>
 </div>

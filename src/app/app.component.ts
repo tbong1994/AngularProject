@@ -27,4 +27,8 @@ export class AppComponent implements OnInit{
     return this.authenticated = this.appService.getIsAuthenticated();
   }
 
+  onLogOutClicked():void{
+    this.appService.logout();
+  }
+
 }

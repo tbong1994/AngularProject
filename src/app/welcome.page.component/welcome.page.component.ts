@@ -9,13 +9,21 @@ import { RouterModule, Routes } from '@angular/router';
 @Component({
   selector: 'welcome-page',
   templateUrl: './welcome.page.component.html',
-  styleUrls: ['../app.component.css']
+  styleUrls: ['../app.component.css','/welcome.page.component.css']
 })
 
 export class WelcomePageComponent {
   constructor(private wizardService: WizardService){}
 
-  logout(): void{
-    this.wizardService.logout();
+  dashboardClicked:boolean;
+  wizardsClicked:boolean;
+  
+  onDashboardClicked() : void{
+    this.wizardsClicked = false;
+    this.dashboardClicked = true;
+  }
+  onWizardsClicked(): void{
+    this.dashboardClicked = false;
+    this.wizardsClicked = true;
   }
 }
