@@ -6,12 +6,14 @@
   <title>Sign In with Auth0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<div *ngIf="isLoginValidated == false">
-  {{alert}}
-</div>
-<body class ="login-page">
+<body class ="login-page font" >
   <div id="lock">
   </div>
+  <div *ngIf="isLoginValidated==false">
+      <p>
+        <ngb-alert type="custom" [dismissible]="false"><strong>ARE YOU A DEATH EATER? DEATH EATERS ARE NOT ALLOWED HERE!</strong></ngb-alert>
+      </p>
+    </div>
   <div style="margin-top:150px;">
     <div class="form container">
       <form class="login-form" #loginForm>

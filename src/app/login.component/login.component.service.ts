@@ -15,7 +15,7 @@ export class LoginServiceComponent {
     domain: 'tbong1994.auth0.com',
     responseType: 'token id_token',
     audience: 'https://tbong1994.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/welcome',
+    redirectUri: 'http://localhost:3000/welcome',
     scope: 'openid'
   });
 
@@ -71,10 +71,12 @@ export class LoginServiceComponent {
     
     // let loginCredentials = JSON.stringify({username, password});
     let loginCredentials = {username,password};
-    const url = `${this.wizardsUrl}/login/${username}/${password}`;
+    // const url = `${this.wizardsUrl}/login/${username}/${password}`;
+    const url = `http://localhost:3000/api/login/${username}/${password}`;
     this.http.post(url, loginCredentials, {headers: this.headers})
-    .map(response => response.json() ? this.isValid=true : this.isValid=false)
-    .subscribe();
+    .toPromise()
+    .then(response => console.log(response))
+    .catch();
     return this.isValid;
   }
 }

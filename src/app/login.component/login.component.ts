@@ -4,7 +4,6 @@ import { LoginServiceComponent } from './login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
 import * as auth0 from 'auth0-js';
-import {ngbAlertConfig} from '../alert.component/alert.component';
 
 @Component({
     selector: 'login-component',
@@ -20,21 +19,16 @@ export class LoginComponent implements OnInit{
     private token: string;
     private username:string;
     private password:string;
-
-    public title = 'Welcome to the Tour of Harry Potter';
     public isLoginValidated:boolean;
-    public alert : ngbAlertConfig;
     ngOnInit(){
        
     }
 
     onLogInClick(username:string, password:string):void{
-        // if(!this.isLoginValid(username, password)){ //if login is not valid
-        //     this.isLoginValidated = false;
-        //     // this.alert = new ngbAlertConfig();
-        //     // this.alert.alert.message = "Your username or password is incorrect";
-        //     return;
-        // }
+        if(!this.isLoginValid(username, password)){ //if login is not valid
+            this.isLoginValidated = false;
+            return;
+        }
         this.isLoginValidated = true;
         this.username = username;
         this.password = password;
