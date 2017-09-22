@@ -36,7 +36,7 @@ export class LoginServiceComponent {
         this.setSession(authResult);
         this.router.navigate(['/welcome']);
       } else if (err) {
-        this.router.navigate([{outlets:{'login':['login']}}]);
+        this.router.navigate(['/login']);
         console.log(err);
       }
     });

@@ -1,13 +1,10 @@
 
 <h1>{{title}}</h1>
-<div *ngIf ="authenticate()" style="text-align:left">
-  <a [routerLink]="[{outlets: {'dash':['dashboard']}}]">Dashboard</a> 
-  <a [routerLink]="[{outlets: {'display':['wizards']}}]">Wizards of Hogwartz</a>
-</div>
-<div *ngIf="!authenticate()">
-  <a [routerLink]="[{outlets: {'login':['login']}}]">login</a>
-  <router-outlet name = "login"></router-outlet>
-</div>
+<!-- <div *ngIf ="authenticate()" style="text-align:left"> -->
+        
+<!-- </div> -->
+<!-- <div *ngIf="!authenticate()">
+        <router-outlet></router-outlet>
+</div> -->
 
-<router-outlet name ="dash"></router-outlet>
-<router-outlet name ="display"></router-outlet>
+<router-outlet></router-outlet>

@@ -2,8 +2,16 @@
 <div style="text-align:left">
     <div id="headerDiv">
         <nav> 
-          <a routerLink="/dashboard">Dashboard</a> 
-          <a routerLink="/wizards">Wizards of Hogwartz</a>
+            <a routerLink="/dashboard">
+                <label class="btn-primary" ngbButtonLabel>
+                    Dashboard
+                </label>
+            </a>
+            <a routerLink="/wizards">
+                <label class="btn-primary" ngbButtonLabel>
+                    Wizards
+                </label>
+            </a>
           <button class="logout" (click)="logout()">logout</button>
         </nav> 
     </div>

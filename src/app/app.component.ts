@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component/login.component.service';
-import { AppService} from './app.component.service';
+import { AppService } from './app.component.service';
 
 @Component({
   selector: 'harry-potter',
