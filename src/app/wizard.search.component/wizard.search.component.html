@@ -1,10 +1,10 @@
 
-<div id="dashboardWizardListParent">
+<div id="dashboardWizardListParent" class = "searchWizardDiv">
   <div class ="wizardSearchParentDiv">
     <h4>Search for a wizard</h4>
     <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  </div>
-  <div *ngFor="let wizard of wizards | async" (click)="gotoDetail(wizard)" class="search-result" >
-    {{wizard.name}}
+    <div *ngFor="let wizard of wizards | async" (click)="gotoDetail(wizard)" class="search-result" >
+      {{wizard.name}}
+    </div>
   </div>
 </div>

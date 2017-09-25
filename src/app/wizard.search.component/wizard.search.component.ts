@@ -38,11 +38,13 @@ export class WizardSearchComponent implements OnInit {
         this.wizards = this.searchTerms
                         .debounceTime(300)  // wait 300ms after each keystroke before considering the term
                         .distinctUntilChanged() // ignore if next search term is same as previous
-                        .switchMap(term=> term  // switch to new observable each time the term changes
+                        .switchMap(term=> term  // switch to new observable each time the term changes .. switchMap ignores previous subscription by default(efficient in searching)
                             ?this.wizSearchService.search(term) // return the http search observable
                             :Observable.of<Wizard[]>([])) // or the observable of empty heroes if there was no search term
-                        .catch(error => {console.log(error);
-        return Observable.of<Wizard[]>([])});
+                        .catch(error => {
+                            console.log(error);
+                            return Observable.of<Wizard[]>([]);
+                        });
     }
 
     gotoDetail(wizard: Wizard): void {

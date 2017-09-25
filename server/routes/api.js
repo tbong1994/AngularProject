@@ -38,7 +38,7 @@ router.get('/wizards/:name', (req, res)=>{
             console.log(err.message);
             return;
         }
-        console.log("from wizards/name : " + response);
+        // console.log("from wizards/name : " + response);
         res.send(response);
     });
 });
@@ -56,7 +56,7 @@ router.get('/wizard/:name', (req, res) => {
             console.log(err.message);
             return;
         }
-        console.log("from WIZARD/name : " + response);
+        // console.log("from WIZARD/name : " + response);
         res.send(response);
     });
 });
@@ -68,7 +68,7 @@ router.put('/wizard/:name', (req, res) => {
     query = "UPDATE wizardsdb SET  name = " + '"' + req.body.name + '" WHERE id = ' + req.body.id; //specific wizard query.
     db.query(query, (err, response) => {
         if(err){
-            console.log(err.message);
+            // console.log(err.message);
             return;
         }
         res.send(response);
@@ -88,7 +88,7 @@ router.post('/login/:username/:password', (req,res)=>{
             console.log(err.message);
             return;
         }
-        console.log(response);
+        // console.log(response);
         res.send(response);
     });
 });
