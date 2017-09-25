@@ -3,3 +3,6 @@
 body{
     background-image: url("assets/img/greathall.jpg");
 }
+button, input{
+    border-radius: 1000px;
+}

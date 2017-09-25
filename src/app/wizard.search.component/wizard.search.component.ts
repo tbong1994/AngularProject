@@ -46,7 +46,7 @@ export class WizardSearchComponent implements OnInit {
     }
 
     gotoDetail(wizard: Wizard): void {
-        let link = ['/wizard', wizard.id];
+        let link = ['/wizard', wizard.name];
         this.router.navigate(link);
     }
 }

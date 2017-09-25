@@ -10,7 +10,10 @@ export class WizardSearchService{
     constructor(private http: Http){}
 
     search(term: string): Observable<Wizard[]>{
-        return this.http.get(`api/wizards/?name=${term}`)
-                .map(response => response.json().data as Wizard[]);
+        return this.http.get(`/api/wizards/${term}`)
+                .map(response => response.json() as Wizard[]);
+        // const url = "http://localhost:3000/wizards";
+        // return this.http.get(`${url}/?name=${term}`)
+        //         .map(response => response.json() as Wizard[]);
     }
 }

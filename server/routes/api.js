@@ -19,9 +19,26 @@ router.get('/wizards', (req, res) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     db.query(query, (err, response) => {
         if(err){
+            return;
+        }
+        // console.log(response);
+        res.send(response);
+    });
+});
+
+router.get('/wizards/:name', (req, res)=>{
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    const lastSlashIndex = req.originalUrl.lastIndexOf('/');
+    var requestedWizardName = req.originalUrl.substring(lastSlashIndex + 1); //get wizard's name from the url.
+    requestedWizardName = requestedWizardName.replace('%20',' '); //replace space in the name from the request URL. URL has '%20' for space.
+    query = "SELECT * FROM wizardsdb WHERE name LIKE " + '"%' + requestedWizardName + '%"'; //specific wizard query.
+    db.query(query, (err, response) => {
+        if(err){
             console.log(err.message);
             return;
         }
+        console.log("from wizards/name : " + response);
         res.send(response);
     });
 });
@@ -39,7 +56,7 @@ router.get('/wizard/:name', (req, res) => {
             console.log(err.message);
             return;
         }
-        console.log(response);
+        console.log("from WIZARD/name : " + response);
         res.send(response);
     });
 });

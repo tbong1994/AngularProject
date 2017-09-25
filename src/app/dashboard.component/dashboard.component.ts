@@ -21,11 +21,7 @@ export class DashboardComponent implements OnInit {
     ngOnInit(){
         this.wizService.getWizards().then( wizards => this.wizards = wizards.slice(0,3) );
     }
-
-    goBack(): void {
-        this.location.back();
-    }
-
+    
     onSelect( wizard: Wizard){
         this.selectedWizard = wizard;
     }

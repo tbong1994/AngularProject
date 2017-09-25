@@ -17,7 +17,7 @@
   <div style="margin-top:150px;">
     <div class="form container">
       <form class="login-form" #loginForm>
-        <input placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'"  #username required/>
+        <input autofocus="true" placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'"  #username required/>
         <input placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder='password'"#password required/>
         <button (click)="onLogInClick(username.value, password.value)">Alohomora</button>
       </form>

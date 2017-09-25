@@ -17,8 +17,7 @@
   </ul>
 </div>
 <div class ="createWizardFont">
-  <label>Wizard Name: </label><input #newWizardName/><br>
+  <label>Wizard Name: </label><input autofocus="true" #newWizardName /><br>
   <label>Wizard House: </label><input #newWizardHouse/><br>
   <button class ="create" (click)="add(newWizardName.value, newWizardHouse.value); newWizardName.value =''; newWizardHouse.value ='';">Create</button>
-  <button class ="back"(click)="goBack()">Back</button> 
 </div>

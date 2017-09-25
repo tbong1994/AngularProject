@@ -34,10 +34,6 @@ export class WizardComponent implements OnInit {
     return this.selectedWizard;
   }
 
-  goBack(): void {
-    this.location.back();
-  }
-  
   onSelect( wizard: Wizard){
     this.selectedWizard = wizard;
   }
