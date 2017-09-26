@@ -10,7 +10,7 @@
   <ul class ="wizardListParent">
     <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
       <div class="nameAndFaceDiv">
-        <span class = "center">{{wizard.name}} from {{wizard.house}}</span>
+        <span class = "center" myWizardAttributeDirective>{{wizard.name}} from {{wizard.house}}</span>
         <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
       </div>
     </li>

@@ -23,6 +23,7 @@ import { LoginServiceComponent } from './login.component/login.component.service
 import { PostsComponent} from './api.component/posts.component';
 import { PostsService } from './api.component/posts.service';
 import { AppService } from './app.component.service';
+import {MyWizardAttributeDirective} from './my.attribute.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -40,7 +41,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     WizardSearchComponent,
     LoginComponent,
     WelcomePageComponent,
-    PostsComponent
+    PostsComponent,
+    MyWizardAttributeDirective
   ],
   imports: [
     BrowserModule,

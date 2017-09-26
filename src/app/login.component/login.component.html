@@ -19,7 +19,7 @@
       <form class="login-form" #loginForm>
         <input autofocus="true" placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'"  #username required/>
         <input placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder='password'"#password required/>
-        <button (click)="onLogInClick(username.value, password.value)">Alohomora</button>
+        <button (click)="onLogInClick(username.value, password.value)" myWizardAttributeDirective>Alohomora</button>
       </form>
     </div>
   </div>
