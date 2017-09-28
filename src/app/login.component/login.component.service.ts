@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
 import { Headers, Http } from '@angular/http';
+import { LoginComponent } from './login.component';
 
 @Injectable()
 export class LoginServiceComponent {
 
   private wizardsUrl = '/api'; //relative url to node project ng build creates the dist folder and default url is 'localhost:3000'
   private headers = new Headers({'Content-type': 'application/json'});
-  private isValid: boolean = false;
+  public isValid: boolean = false;
   auth0 = new auth0.WebAuth({
     clientID: 'gcN4GpyJhPL3655VpH2oSURaHFO5ZU7h',
     domain: 'tbong1994.auth0.com',
@@ -66,17 +67,14 @@ export class LoginServiceComponent {
     return new Date().getTime() < expiresAt;
   }
 
-  public isLoginValid(username:string, password:string) : boolean{
-    if(username == '' || password == ''){return this.isValid;}
-    
+  public isLoginValid(username:string, password:string) : Promise<LoginComponent>{
     // let loginCredentials = JSON.stringify({username, password});
     let loginCredentials = {username,password};
     // const url = `${this.wizardsUrl}/login/${username}/${password}`;
     const url = `http://localhost:3000/api/login/${username}/${password}`;
-    this.http.post(url, loginCredentials, {headers: this.headers})
+    return this.http.post(url, loginCredentials, {headers: this.headers})
     .toPromise()
-    .then(response => console.log(response))
+    .then(response => response.json() as LoginComponent)
     .catch();
-    return this.isValid;
   }
 }

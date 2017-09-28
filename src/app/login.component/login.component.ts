@@ -25,11 +25,10 @@ export class LoginComponent implements OnInit{
        
     }
 
-    onLogInClick(username:string, password:string):void{
-        if(!this.isLoginValid(username, password)){ //if login is not valid
-            this.isLoginValidated = false;
-            return;
-        }
+    onLoginClick(username:string, password:string):void {
+        this.isLoginValid(username, password);
+    }
+    authenticated(username:string, password:string):void{
         this.isLoginValidated = true;
         this.appService.setIsAuthenticated(this.isLoginValidated);
         this.username = username;
@@ -41,10 +40,14 @@ export class LoginComponent implements OnInit{
     onCreateAnAccountClick(){
         this.loginService.login();
     }
+    failLogIn(): void{
+        this.isLoginValidated =false;
+    }
 
-    public isLoginValid(username:string, password:string): boolean{
-        if(username == '' || password == ''){return false;}
-        // return this.loginService.isLoginValid(username, password);
-        return true;
+    isLoginValid(username:string, password:string): void{
+        let isAuthenticated = false;
+        if(username == '' || password == ''){this.failLogIn();}
+        let some = this.loginService.isLoginValid(username, password).then(res => res ? this.authenticated(res[0].username,res[0].password) : this.failLogIn());
+        
     }
 }
