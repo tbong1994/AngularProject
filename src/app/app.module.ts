@@ -24,6 +24,7 @@ import { PostsComponent} from './api.component/posts.component';
 import { PostsService } from './api.component/posts.service';
 import { AppService } from './app.component.service';
 import {MyWizardAttributeDirective} from './my.attribute.component';
+import {NgbdCarouselConfig} from './carousel.component/carousel.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -42,7 +43,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     LoginComponent,
     WelcomePageComponent,
     PostsComponent,
-    MyWizardAttributeDirective
+    MyWizardAttributeDirective,
+    NgbdCarouselConfig
   ],
   imports: [
     BrowserModule,
