@@ -18,7 +18,7 @@
     <h1>Most Popular Wizards</h1>
     <div class="">
       <a *ngFor="let wizard of wizards" style="font-size: 25px; margin-bottom: 0px; cursor: pointer;" >
-        <div class="" [routerLink]="['/wizard', wizard.id]">
+        <div class="" [routerLink]="['/wizard', wizard.name]">
           <h4>{{wizard.name}}</h4>
         </div>
       </a>
