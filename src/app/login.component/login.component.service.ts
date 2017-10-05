@@ -11,6 +11,7 @@ export class LoginServiceComponent {
   private wizardsUrl = '/api'; //relative url to node project ng build creates the dist folder and default url is 'localhost:3000'
   private headers = new Headers({'Content-type': 'application/json'});
   public isValid: boolean = false;
+
   auth0 = new auth0.WebAuth({
     clientID: 'gcN4GpyJhPL3655VpH2oSURaHFO5ZU7h',
     domain: 'tbong1994.auth0.com',

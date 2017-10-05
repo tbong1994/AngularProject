@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit{
     constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute, private authHttp: AuthHttp, private appService:AppService ){
     }
     
-    private token: string;
-    private username:string;
+    public token: string;
+    public username:string;
     private password:string;
     public isLoginValidated:boolean;
     ngOnInit(){
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit{
     onLoginClick(username:string, password:string):void {
         this.isLoginValid(username, password);
     }
+
     authenticated(username:string, password:string):void{
         this.isLoginValidated = true;
         this.appService.setIsAuthenticated(this.isLoginValidated);
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit{
     onCreateAnAccountClick(){
         this.loginService.login();
     }
+
     failLogIn(): void{
         this.isLoginValidated =false;
     }
@@ -47,7 +49,7 @@ export class LoginComponent implements OnInit{
     isLoginValid(username:string, password:string): void{
         let isAuthenticated = false;
         if(username == '' || password == ''){this.failLogIn(); return;}
+        this.username = username;
         this.loginService.isLoginValid(username, password).then(res => res ? this.authenticated(res[0].username,res[0].password) : this.failLogIn());
-        
     }
 }

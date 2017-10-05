@@ -92,4 +92,23 @@ router.post('/login/:username/:password', (req,res)=>{
         res.send(response);
     });
 });
+
+/*GRAB EVERYONE */
+router.get('/username', (req, res) => {
+    query = "SELECT FROM wizardsdb"; //get all wizards from the database.
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    db.query(query, (err, response) => {
+        if(err){
+            return;
+        }
+        // console.log(response);
+        res.send(response);
+    });
+});
+
+
+
+
 module.exports = router;
+
