@@ -1,9 +1,25 @@
 
 <div style="text-align:left">
-    <div id="welcomeUserDiv" >
-        <span>
-            Welcome {{firstname + lastname}}!
-        </span>
+    <div *ngIf="!hasUserClickedButton">
+        <div id="welcomeUserDiv" >
+            <span>
+                Welcome {{firstname + lastname}}!
+            </span>
+        </div>
+    </div>
+    <div *ngIf="wizardsClicked">
+        <div id="welcomeUserDiv">
+            <span>
+                Wingardium Leviosa!
+            </span>
+        </div>
+    </div>
+    <div *ngIf="dashboardClicked">
+        <div id="welcomeUserDiv" >
+            <span>
+                My favorite is Hermione Granger!
+            </span>
+        </div>
     </div>
     <div id="headerDiv">
         <nav>
@@ -15,7 +31,7 @@
             </label>
         </nav>
         <div *ngIf="dashboardClicked">
-            <my-dashboard></my-dashboard>
+            <my-dashboard [user]="user"></my-dashboard>
         </div>
         <div *ngIf="wizardsClicked">
             <wizard-component></wizard-component>

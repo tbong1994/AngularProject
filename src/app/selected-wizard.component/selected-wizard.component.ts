@@ -1,7 +1,6 @@
 import { WizardComponent } from '../wizard.component/wizard.component';
 import { Wizard } from '../wizard.component/wizard';
 import { Component, OnInit, Input } from '@angular/core';
-import { NgModule } from '@angular/core';
 import { WizardService } from '../wizard.component/wizard.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';

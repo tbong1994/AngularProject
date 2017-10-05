@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Wizard } from '../wizard.component/wizard';
 import { WizardService } from '../wizard.component/wizard.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { UserComponent } from '../user.component/user.component';
 
 //DASHBOARD ONLY DISPLAYS THE TOP 3 CHARACTERS
 @Component({
@@ -12,7 +13,8 @@ import { Location } from '@angular/common';
 })
 
 export class DashboardComponent implements OnInit { 
-    
+    @Input() user: UserComponent; //get wizard from parent component
+
     public wizards : Wizard[] = [];
     private selectedWizard : Wizard;
 

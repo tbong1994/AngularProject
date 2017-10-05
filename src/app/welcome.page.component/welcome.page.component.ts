@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginServiceComponent } from '../login.component/login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {UserServiceComponent} from '../user.component/user.service.component';
+import {UserComponent} from '../user.component/user.component';
 
 @Component({
   selector: 'welcome-page',
@@ -21,16 +22,20 @@ export class WelcomePageComponent implements OnInit {
   private firstname:string;
   private lastname:string;
 
-  dashboardClicked:boolean;
-  wizardsClicked:boolean;
+  private user:UserComponent;
+
+  public dashboardClicked:boolean;
+  public wizardsClicked:boolean;
+  public hasUserClickedButton:boolean = false;
 
   ngOnInit():void{
     this.route.paramMap
-    .switchMap((params: ParamMap) => this.userService.getUserInfo(params.get('username'))) //get parameter, 'id' should match with wizardService.getWizard() parameter.
+    .switchMap((params: ParamMap) => this.userService.getUserInfo(params.get('username')))
     .subscribe(userInfo => {
         this.username = userInfo[0].username;
         this.firstname = userInfo[0].firstname;
         this.lastname = userInfo[0].lastname;
+        this.user = new UserComponent(this.username,this.firstname,this.lastname);
     });
   }
   constructor(public route:ActivatedRoute, public userService: UserServiceComponent){}
@@ -38,9 +43,12 @@ export class WelcomePageComponent implements OnInit {
   onDashboardClicked() : void{
     this.wizardsClicked = false;
     this.dashboardClicked = true;
+    this.hasUserClickedButton = true;
   }
+
   onWizardsClicked(): void{
     this.dashboardClicked = false;
     this.wizardsClicked = true;
+    this.hasUserClickedButton = true;
   }
 }

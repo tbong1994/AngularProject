@@ -5,6 +5,9 @@
     <button class ="select" (click)="goToDetail()">SELECT</button>
 </div>
 <div>
+    <span>Select a Wizard {{user.firstname + user.lastname}} !</span>
+</div>
+<div>
     <ul class ="dashboardWizardListParent">
         <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
         <div class="nameAndFaceDiv">

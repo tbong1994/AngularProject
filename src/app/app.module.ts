@@ -54,13 +54,13 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppRouterModule,
     BrowserAnimationsModule,
   ],
-    providers: [WizardService, WizardComponent,LoginServiceComponent,AppService,UserServiceComponent,
-      {
-        provide: AuthHttp,
-        useFactory: authHttpServiceFactory,
-        deps: [Http, RequestOptions]
-      }
-    ],
-    bootstrap: [AppComponent]
+  providers: [WizardService, WizardComponent,LoginServiceComponent,AppService,UserServiceComponent,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,8 +2,8 @@ img{
     height:60%;
     width: 60%;
 }
-#carouselDiv{
-    font-size:50px;
+#carouselTitleDiv{
+    font-size:150px;
     text-align: center;
     color: rgba(218, 162, 32, 0.79);
 }
