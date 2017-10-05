@@ -2,3 +2,11 @@ img{
     height:60%;
     width: 60%;
 }
+#carouselDiv{
+    font-size:50px;
+    text-align: center;
+    color: rgba(218, 162, 32, 0.79);
+}
+.center{
+    text-align: center;
+}

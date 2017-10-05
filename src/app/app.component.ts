@@ -17,10 +17,9 @@ import { AppService } from './app.component.service';
 export class AppComponent implements OnInit{
   title:string = 'Expelliarmus';
   authenticated : boolean = false;
-  constructor(private router: Router, private loginService: LoginServiceComponent, private appService: AppService){}
+  constructor(private appService: AppService){}
 
   ngOnInit(){
-    this.loginService.handleAuthentication();
   }
 
   authenticate():boolean{
@@ -28,6 +27,7 @@ export class AppComponent implements OnInit{
   }
 
   onLogOutClicked():void{
+    this.authenticated=false;
     this.appService.logout();
   }
 

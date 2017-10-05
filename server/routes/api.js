@@ -93,16 +93,19 @@ router.post('/login/:username/:password', (req,res)=>{
     });
 });
 
-/*GRAB EVERYONE */
-router.get('/username', (req, res) => {
-    query = "SELECT FROM wizardsdb"; //get all wizards from the database.
+/*GRAB userinfo */
+router.get('/:username', (req, res) => {
+    // console.log("username api");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    const lastSlashIndex = req.originalUrl.lastIndexOf('/');
+    var requestedUserName = req.originalUrl.substring(lastSlashIndex + 1); //get username from the url.
+    query = "SELECT * FROM login where username = " + '"' + requestedUserName + '"'; //get all wizards from the database.
     db.query(query, (err, response) => {
         if(err){
+            console.log(err.message);
             return;
         }
-        // console.log(response);
         res.send(response);
     });
 });

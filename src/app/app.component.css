@@ -22,8 +22,8 @@ h1
 {
   width: 100%;
   font-family: harrypotterfont;
-  font-size: 150px;
-  color: darkgoldenrod;
+  font-size: 300px;
+  color: rgba(184, 109, 11, 0.93);
   text-align: center;
   text-shadow: 10px 10px 10px #808080;
 }

@@ -1,13 +1,12 @@
 .btn-primary
 {
     font-family: harrypotterfont;
-    background-color: rgba(218, 215, 32, 0.44);
+    background-color: rgba(218, 215, 32, 0.15);
     color: rgba(255, 174, 0, 0.9);
-    padding-top: 0px;
     padding-bottom: 0px;
     font-size: 50px;
     cursor: pointer;
-    border-color: white;
+    border-color: rgba(255,255,255,0.11);
     margin: 40px;
 }
 .btn-primary:hover{
@@ -18,4 +17,11 @@
     text-align: center;
     align-items: center;
     display: inline;
+}
+#welcomeUserDiv
+{
+    font-size: 80px;
+    font-family: harrypotterfont;
+    color: rgba(255, 174, 0, 0.9);
+    text-align: center;
 }

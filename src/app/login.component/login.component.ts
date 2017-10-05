@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit{
         this.username = username;
         this.password = password;
         this.token = this.loginService.getClientID();
-        this.router.navigate(['/welcome']);
+        this.router.navigate(['/welcome', username]);
     }
     
     onCreateAnAccountClick(){
