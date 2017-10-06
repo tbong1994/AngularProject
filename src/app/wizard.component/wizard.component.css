@@ -67,6 +67,12 @@
     margin-left: 10px;
     align-content: center;
 }
+#selectAWizardSpan{
+    font-family: harrypotterfont;
+    font-size: 130px;
+    color: #B8860B;
+    text-shadow: 1px 1px 1px #b3b3b3;
+}
 
 /* END WIZARD FACE AND NAME */
 
