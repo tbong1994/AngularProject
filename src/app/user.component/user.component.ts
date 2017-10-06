@@ -13,7 +13,8 @@ export class UserComponent{
     public lastname:string;
     public email:string;
     public token:string;
-    constructor(username:string,firstname:string,lastname:string){
+
+    constructor(username:string,firstname:string,lastname:string,password?:string,email?:string,token?:string){
         this.username =username;
         this.firstname= firstname;
         this.lastname =lastname;

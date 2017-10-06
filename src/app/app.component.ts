@@ -23,12 +23,17 @@ export class AppComponent implements OnInit{
   }
 
   authenticate():boolean{
+    console.log("authenticate");
     return this.authenticated = this.appService.getIsAuthenticated();
   }
 
   onLogOutClicked():void{
+    console.log("logout");
     this.authenticated=false;
     this.appService.logout();
   }
 
+  isAuthenticated():boolean{
+    return this.authenticated;
+  }
 }

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body class ="login-page font" >
-    <carousel></carousel>
+  <carousel></carousel>
   <div id="lock">
   </div>
   <div *ngIf="isLoginValidated==false">
@@ -21,6 +21,7 @@
         <input autofocus="true" placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'"  #username required/>
         <input placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder='password'"#password required/>
         <button (click)="onLoginClick(username.value, password.value)" myWizardAttributeDirective>Alohomora</button>
+        <button (click)="onSignUpClicked()" myWizardAttributeDirective>Sign Up</button>
       </form>
     </div>
   </div>

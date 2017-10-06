@@ -25,6 +25,8 @@ import {MyWizardAttributeDirective} from './my.attribute.component';
 import {NgbdCarouselConfig} from './carousel.component/carousel.component';
 import {UserServiceComponent} from './user.component/user.service.component';
 import {UserComponent} from './user.component/user.component';
+import {SignUpComponent} from './signup.component/signup.component';
+import {SignUpServiceComponent} from './signup.component/signup.service.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -43,6 +45,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     LoginComponent,
     WelcomePageComponent,
     MyWizardAttributeDirective,
+    SignUpComponent,
     NgbdCarouselConfig,
     UserComponent,
   ],
@@ -54,7 +57,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppRouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [WizardService, WizardComponent,LoginServiceComponent,AppService,UserServiceComponent,
+  providers: [WizardService, WizardComponent,LoginServiceComponent,AppService,UserServiceComponent,SignUpServiceComponent,
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,

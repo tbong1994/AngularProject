@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit{
         this.isLoginValid(username, password);
     }
 
+    onSignUpClicked():void{
+        this.router.navigate(['/signup']);
+    }
     authenticated(username:string, password:string):void{
         this.isLoginValidated = true;
         this.appService.setIsAuthenticated(this.isLoginValidated);
@@ -38,10 +41,6 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['/welcome', username]);
     }
     
-    onCreateAnAccountClick(){
-        this.loginService.login();
-    }
-
     failLogIn(): void{
         this.isLoginValidated =false;
     }

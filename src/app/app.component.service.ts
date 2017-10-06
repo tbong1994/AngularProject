@@ -18,6 +18,7 @@ export class AppService {
         return this.isAuthenticated;
     }
     logout():void {
+        this.isAuthenticated=false;
         this.router.navigate(['/login']);
     }
 }
