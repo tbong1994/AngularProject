@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit{
     }
 
     onSignUpClicked():void{
+        console.log('signup clicked');
         this.router.navigate(['/signup']);
     }
     authenticated(username:string, password:string):void{

@@ -1,10 +1,5 @@
 
-<div *ngIf="isAuthenticated()"><button class="logout" (click)="onLogOutClicked()">logout</button></div>
+<div *ngIf="authenticated"><button class="logout" (click)="onLogOutClicked()">logout</button></div>
 <h1>{{title}}</h1>
 
-<div *ngIf="!authenticate()">
-        <login-component></login-component>
-</div>
-<div *ngIf="authenticate()">
-        <router-outlet></router-outlet>
-</div>
+<router-outlet (activate)="onActivate($event)"></router-outlet>

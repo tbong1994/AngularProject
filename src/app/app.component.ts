@@ -3,10 +3,11 @@ import { WizardComponent } from './wizard.component/wizard.component';
 import { Wizard } from './wizard.component/wizard';
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { OnInit } from '@angular/core';
+import { OnInit,OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component/login.component.service';
 import { AppService } from './app.component.service';
+import { LoginComponent} from './login.component/login.component';
 
 @Component({
   selector: 'harry-potter',
@@ -17,23 +18,24 @@ import { AppService } from './app.component.service';
 export class AppComponent implements OnInit{
   title:string = 'Expelliarmus';
   authenticated : boolean = false;
-  constructor(private appService: AppService){}
+  constructor(private appService: AppService, public router:Router){}
 
   ngOnInit(){
-  }
-
-  authenticate():boolean{
-    console.log("authenticate");
-    return this.authenticated = this.appService.getIsAuthenticated();
+    this.router.navigate(['/login']);
   }
 
   onLogOutClicked():void{
-    console.log("logout");
     this.authenticated=false;
     this.appService.logout();
   }
-
-  isAuthenticated():boolean{
-    return this.authenticated;
+  onActivate(component):void{
+    console.log(component.route.component.name);
+    if(component.route.component.name != 'LoginComponent'){ //don't show logout in login page
+      console.log("component same");
+      this.showLogOutButton();
+    }
+  }
+  showLogOutButton():void{
+    this.authenticated = true;
   }
 }

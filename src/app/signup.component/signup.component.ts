@@ -3,13 +3,18 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { SignUpServiceComponent } from './signup.service.component';
 import { UserComponent} from '../user.component/user.component';
+
 @Component({
     selector: 'signup-component',
     templateUrl: './signup.component.html',
     styleUrls:['../login.component/login.component.css'],
 })
 
-export class SignUpComponent{
+export class SignUpComponent implements OnInit{
+
+    ngOnInit(){
+
+    }
 
     public isAccountInfoValid:boolean;
     public invalidUsernameDialog:string;

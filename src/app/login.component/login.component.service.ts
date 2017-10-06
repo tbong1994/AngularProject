@@ -31,15 +31,6 @@ export class LoginServiceComponent {
       return this.auth0.clientID;
   }
 
-  public logout(): void {
-    // Remove tokens and expiry time from localStorage
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('expires_at');
-    // Go back to the home route
-    this.router.navigate(['/login']);
-  }
-
   public isLoginValid(username:string, password:string) : Promise<LoginComponent>{
     // let loginCredentials = JSON.stringify({username, password});
     let loginCredentials = {username,password};

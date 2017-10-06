@@ -9,7 +9,7 @@ import { WelcomePageComponent } from './welcome.page.component/welcome.page.comp
 import {SignUpComponent} from './signup.component/signup.component';
 
 const appRoute: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, data:{name:'login'}},
   {path: 'welcome/:username', component: WelcomePageComponent},
   {path: 'dashboard',component: DashboardComponent},
   {path: 'wizards', component: WizardComponent},
@@ -19,7 +19,7 @@ const appRoute: Routes = [
 ]
 
 @NgModule({
-    imports : [RouterModule.forRoot(appRoute)],
+    imports : [RouterModule.forRoot(appRoute/*,{enableTracing:true}*/)], //enableTracing is for debugging
     exports : [RouterModule]
 })
 export class AppRouterModule {}
