@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit{
     public isAccountInfoValid:boolean;
     public invalidUsernameDialog:string;
 
-    constructor(public signupService: SignUpServiceComponent){
+    constructor(public signupService: SignUpServiceComponent, public router:Router){
 
     }
 
@@ -49,5 +49,8 @@ export class SignUpComponent implements OnInit{
 
     public generateInvalidInputDialog(invalidInput:string):void{
         if(invalidInput=="username"){this.invalidUsernameDialog='Username should contain more than 5 characters';}
+    }
+    public onHomeClicked():void{
+        this.router.navigate(['/login']);
     }
 }
