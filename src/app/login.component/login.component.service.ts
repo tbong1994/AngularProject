@@ -35,7 +35,7 @@ export class LoginServiceComponent {
     // let loginCredentials = JSON.stringify({username, password});
     let loginCredentials = {username,password};
     // const url = `${this.wizardsUrl}/login/${username}/${password}`;
-    const url = `http://localhost:3000/api/login/${username}/${password}`;
+    const url = `/api/login/${username}/${password}`;
     return this.http.post(url, loginCredentials, {headers: this.headers})
     .toPromise()
     .then(response => response.json() as LoginComponent)

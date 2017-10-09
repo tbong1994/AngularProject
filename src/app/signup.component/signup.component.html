@@ -6,7 +6,7 @@
         <input placeholder="firstname" onfocus="this.placeholder = ''" onblur="this.placeholder='firstname'"#firstname required/>
         <input placeholder="lastname" onfocus="this.placeholder = ''" onblur="this.placeholder='lastname'"#lastname required/>
         <input placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder='email'"#email required/>
-        <button (click)="onRegisterClicked(username,password,firstname,lastname,email)" myWizardAttributeDirective>Register</button>
+        <button (click)="onRegisterButtonClicked(username.value,password.value,firstname.value,lastname.value,email.value)" myWizardAttributeDirective>Register</button>
         </form>
     </div>
     <button (click)="onHomeClicked()" myWizardAttributeDirective>Home</button>

@@ -93,7 +93,7 @@ router.post('/login/:username/:password', (req,res)=>{
     });
 });
 
-/*GRAB userinfo */
+/*user signup */
 router.get('/:username', (req, res) => {
     // console.log("username api");
     res.header("Access-Control-Allow-Origin", "*");
@@ -110,6 +110,16 @@ router.get('/:username', (req, res) => {
     });
 });
 
+
+router.post('/signup', (req, res) => {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    //req is the new user account data
+    const userToken = req.body.token;
+    // query = "INSERT INTO login";
+    console.log(req.body);
+});
 
 
 

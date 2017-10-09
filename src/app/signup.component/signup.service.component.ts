@@ -12,13 +12,11 @@ import {UserComponent} from '../user.component/user.component';
 export class SignUpServiceComponent{
     private headers = new Headers({'Content-type': 'application/json'});
     
-    constructor(public http:Http){
+    constructor(public http:Http){}
 
-    }
-
-    public registerNewAccount( newUser: UserComponent): Promise<any>{
+    public registerNewAccount( token: string, newUser: UserComponent): Promise<any>{
         const url =`/api/signup`;
-        return this.http.post(url, JSON. stringify(newUser), {headers: this.headers})
+        return this.http.post(url, JSON.stringify([token,newUser]), {headers: this.headers})
         .toPromise()
         .then()
         .catch();

@@ -13,21 +13,22 @@ import { UserComponent} from '../user.component/user.component';
 export class SignUpComponent implements OnInit{
 
     ngOnInit(){
-
+        console.log('ngInit in Sign Up Comp');
     }
 
     public isAccountInfoValid:boolean;
     public invalidUsernameDialog:string;
 
-    constructor(public signupService: SignUpServiceComponent, public router:Router){
-
-    }
+    constructor(public signupService: SignUpServiceComponent, public router:Router){}
 
     public onRegisterButtonClicked(username:string,password:string,firstname:string,lastname:string,email:string): void{
         this.validateNewAccount(username,password,firstname,lastname,email);
         const token = this.generateToken();
-        let newUser = new UserComponent(username,password,firstname,lastname,email,token);
-        this.signupService.registerNewAccount(newUser);
+        let newUser = new UserComponent(username,password,firstname,lastname,email);
+        this.signupService.registerNewAccount(token,newUser)
+        .then( res =>{
+            
+        });
     }
 
     public generateToken(): string{
