@@ -29,7 +29,7 @@ export class AppComponent implements OnInit{
     this.appService.logout();
   }
   onActivate(component):void{
-    console.log(component.route.component.name);
+    // console.log(component.route.component.name);
     if(component.route){
       if(component.route.component.name != 'LoginComponent'){ //don't show logout in login page
         this.showLogOutButton();

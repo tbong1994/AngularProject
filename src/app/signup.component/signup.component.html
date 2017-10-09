@@ -1,13 +1,13 @@
 <div style="margin-top:150px;">
     <div class="form container">
         <form class="login-form" #loginForm>
-        <input autofocus="true" placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'"  #username required/>
-        <input placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder='password'"#password required/>
-        <input placeholder="firstname" onfocus="this.placeholder = ''" onblur="this.placeholder='firstname'"#firstname required/>
-        <input placeholder="lastname" onfocus="this.placeholder = ''" onblur="this.placeholder='lastname'"#lastname required/>
-        <input placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder='email'"#email required/>
+        <input autofocus="true" [ngClass]="{'invalidInput':invalidUsername}" placeholder = "username" onfocus="this.placeholder = ''" onblur="this.placeholder='username'" #username required/>
+        <input placeholder="password" [ngClass]="{'invalidInput':invalidPassword}" onfocus="this.placeholder = ''" onblur="this.placeholder='password'"#password required/>
+        <input placeholder="firstname" [ngClass]="{'invalidInput':invalidFirstName}" onfocus="this.placeholder = ''" onblur="this.placeholder='firstname'"#firstname required/>
+        <input placeholder="lastname" [ngClass]="{'invalidInput':invalidLastName}" onfocus="this.placeholder = ''" onblur="this.placeholder='lastname'"#lastname required/>
+        <input placeholder="email" [ngClass]="{'invalidInput':invalidEmail}" onfocus="this.placeholder = ''" onblur="this.placeholder='email'"#email required/>
         <button (click)="onRegisterButtonClicked(username.value,password.value,firstname.value,lastname.value,email.value)" myWizardAttributeDirective>Register</button>
         </form>
     </div>
-    <button (click)="onHomeClicked()" myWizardAttributeDirective>Home</button>
+    <button type ="button" (click)="onHomeClicked()" myWizardAttributeDirective>Home</button>
 </div>
