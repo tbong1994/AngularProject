@@ -50,6 +50,6 @@ export class LoginComponent implements OnInit{
         let isAuthenticated = false;
         if(username == '' || password == ''){this.failLogIn(); return;}
         this.username = username;
-        this.loginService.isLoginValid(username, password).then(res => res ? this.authenticated(res[0].username,res[0].password) : this.failLogIn());
+        this.loginService.isLoginValid(username, password).then(res => res[0] ? this.authenticated(res[0].username,res[0].password) : this.failLogIn());
     }
 }
