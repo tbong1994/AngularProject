@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit{
     public invalidEmailTooltip:string;
     public invalidFirstnameTooltip:string;
     public invalidlastnameTooltip:string;
+    public isInputValid:boolean;
 
     public isUsernameValid:boolean;
     public isPwValid:boolean;
@@ -32,12 +33,16 @@ export class SignUpComponent implements OnInit{
 
     public onRegisterButtonClicked(username:string,password:string,firstname:string,lastname:string,email:string): void{
         if(this.validateNewAccount(username,password,firstname,lastname,email)){
+            this.isInputValid = true;
             const token = this.signupService.generateToken();
             let newUser = new UserComponent(username,password,firstname,lastname,email);
             this.signupService.registerNewAccount(token,newUser)
             .then( res =>{
                 /*TODO: naviagte user to welcome page */
             });
+        }
+        else{
+            this.isInputValid = false;
         }
     }
     public validateNewAccount(username:string,pw:string,fn:string,ln:string,email:string):boolean{

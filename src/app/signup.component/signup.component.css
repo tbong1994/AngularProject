@@ -1,3 +1,9 @@
 .invalidInput{
     border:solid rgba(255, 0, 0, 0.72) 5px !important;
 }
+.signup-font{
+    font-family: harrypotterfont;
+}
+button{
+    font-size: 30px;
+}

@@ -1,3 +1,8 @@
+
+<body class = "signup-font">
+<div *ngIf ="isInputValid==false">
+    <ngb-alert type="custom" [dismissible]="false"><strong>Invalid input! Fix and submit again</strong></ngb-alert>
+</div>
 <div style="margin-top:150px;">
     <div class="form container">
         <form class="login-form" #loginForm>
@@ -11,3 +16,4 @@
     </div>
     <button type ="button" class="btn btn-outline-secondary" (click)="onHomeClicked()" myWizardAttributeDirective>Home</button>
 </div>
+</body>
