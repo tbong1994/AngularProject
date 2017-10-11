@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
 import * as auth0 from 'auth0-js';
 import { Headers, Http } from '@angular/http';
-import { LoginComponent } from './login.component';
+import { UserComponent } from '../user.component/user.component';
 
 @Injectable()
 export class LoginServiceComponent {
@@ -31,14 +31,14 @@ export class LoginServiceComponent {
       return this.auth0.clientID;
   }
 
-  public isLoginValid(username:string, password:string) : Promise<LoginComponent>{
+  public isLoginValid(username:string, password:string) : Promise<UserComponent>{
     // let loginCredentials = JSON.stringify({username, password});
     let loginCredentials = {username,password};
     // const url = `${this.wizardsUrl}/login/${username}/${password}`;
     const url = `/api/login/${username}/${password}`;
     return this.http.post(url, loginCredentials, {headers: this.headers})
     .toPromise()
-    .then(response => response.json() as LoginComponent)
+    .then(response => response.json() as UserComponent)
     .catch();
   }
 }

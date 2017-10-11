@@ -14,25 +14,26 @@ const API = 'https://jsonplaceholder.typicode.com';
 
 /*GRAB EVERYONE */
 router.get('/wizards', (req, res) => {
-    query = "SELECT * FROM wizardsdb"; //get all wizards from the database.
+    query = "SELECT * FROM wizardofhogwartz"; //get all wizards from the database.
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     db.query(query, (err, response) => {
         if(err){
+            console.log(err.message);
             return;
         }
-        // console.log(response);
         res.send(response);
     });
 });
 
+/*wizard search */
 router.get('/wizards/:name', (req, res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const lastSlashIndex = req.originalUrl.lastIndexOf('/');
     var requestedWizardName = req.originalUrl.substring(lastSlashIndex + 1); //get wizard's name from the url.
     requestedWizardName = requestedWizardName.replace('%20',' '); //replace space in the name from the request URL. URL has '%20' for space.
-    query = "SELECT * FROM wizardsdb WHERE name LIKE " + '"%' + requestedWizardName + '%"'; //specific wizard query.
+    query = "SELECT * FROM wizardofhogwartz WHERE name LIKE " + '"%' + requestedWizardName + '%"'; //specific wizard query.
     db.query(query, (err, response) => {
         if(err){
             console.log(err.message);
@@ -50,7 +51,7 @@ router.get('/wizard/:name', (req, res) => {
     const lastSlashIndex = req.originalUrl.lastIndexOf('/');
     var requestedWizardName = req.originalUrl.substring(lastSlashIndex + 1); //get wizard's name from the url.
     requestedWizardName = requestedWizardName.replace('%20',' '); //replace space in the name from the request URL. URL has '%20' for space.
-    query = "SELECT * FROM wizardsdb WHERE name = " + '"' + requestedWizardName + '"'; //specific wizard query.
+    query = "SELECT * FROM wizardofhogwartz WHERE name = " + '"' + requestedWizardName + '"'; //specific wizard query.
     db.query(query, (err, response) => {
         if(err){
             console.log(err.message);
@@ -65,7 +66,7 @@ router.get('/wizard/:name', (req, res) => {
 router.put('/wizard/:name', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    query = "UPDATE wizardsdb SET  name = " + '"' + req.body.name + '" WHERE id = ' + req.body.id; //specific wizard query.
+    query = "UPDATE wizardofhogwartz SET  name = " + '"' + req.body.name + '" WHERE id = ' + req.body.id; //specific wizard query.
     db.query(query, (err, response) => {
         if(err){
             // console.log(err.message);
@@ -75,26 +76,44 @@ router.put('/wizard/:name', (req, res) => {
     });
 });
 
-
 /*AUTHENTICATE LOGIN */
 router.post('/login/:username/:password', (req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     var username = req.body.username;
     var password = req.body.password;
-    query = "SELECT * FROM login WHERE username = '" + username + "' AND '" + password + "'";
+    query = "SELECT * FROM login WHERE username = '" + username + "' AND password='" + password + "'";
     db.query(query, (err,response)=>{
         if(err){
             console.log(err.message);
             return;
         }
-        // console.log(response);
         res.send(response);
     });
 });
 
 /*user signup */
-router.get('/:username', (req, res) => {
+router.post('/signup', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    //req is the new user account data
+    const userToken = req.body.token;
+    const userInfo = req.body.user;
+
+    query = "INSERT INTO login(token, username, password, email, firstname, lastname) values ('"+userToken+"','"+userInfo.username+"','"+userInfo.password+"','"+ userInfo.email+"','"+ userInfo.firstname+"','"+ userInfo.lastname+"')";
+
+    db.query(query, (err, response)=>{
+        if(err){
+            console.log(err.message);
+            return;
+        }
+        res.send(response);
+    });
+    
+});
+
+/*get user info */
+router.get('/userinfo/:username', (req, res) => {
     // console.log("username api");
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -109,19 +128,6 @@ router.get('/:username', (req, res) => {
         res.send(response);
     });
 });
-
-
-router.post('/signup', (req, res) => {
-
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    //req is the new user account data
-    const userToken = req.body.token;
-    // query = "INSERT INTO login";
-    console.log(req.body);
-});
-
-
 
 module.exports = router;
 

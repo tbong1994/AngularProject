@@ -16,7 +16,7 @@ export class SignUpServiceComponent{
 
     public registerNewAccount( token: string, newUser: UserComponent): Promise<any>{
         const url =`/api/signup`;
-        return this.http.post(url, JSON.stringify([token,newUser]), {headers: this.headers})
+        return this.http.post(url, JSON.stringify({'token':token, 'user':newUser}), {headers: this.headers})
         .toPromise()
         .then()
         .catch();

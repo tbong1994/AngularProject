@@ -35,10 +35,11 @@ export class SignUpComponent implements OnInit{
         if(this.validateNewAccount(username,password,firstname,lastname,email)){
             this.isInputValid = true;
             const token = this.signupService.generateToken();
-            let newUser = new UserComponent(username,password,firstname,lastname,email);
+            let newUser = new UserComponent(username,firstname,lastname,password,email);
             this.signupService.registerNewAccount(token,newUser)
             .then( res =>{
                 /*TODO: naviagte user to welcome page */
+                this.router.navigate(['/welcome/',username]);
             });
         }
         else{

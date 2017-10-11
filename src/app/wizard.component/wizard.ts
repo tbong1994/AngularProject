@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
 
 export class Wizard {
-  face: string;
+  img: string;
   house: string;
   name: string;
   cssClass: string;
   id: number;
-  private wizardImageFiles = [];
 
-  constructor(name:string, house:string, face:string, cssClass:string, id: number)
+  constructor(name:string, house:string, img:string, cssClass:string, id: number)
   {
-    this.face = face;
+    this.img = img;
     this.house = house;
     this.name = name;
     this.cssClass = cssClass;

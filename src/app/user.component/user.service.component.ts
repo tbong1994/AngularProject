@@ -13,7 +13,7 @@ export class UserServiceComponent{
     constructor(public http:Http){}
 
     getUserInfo(username:string){
-        const url = `/api/${username}`;
+        const url = `/api/userinfo/${username}`;
         return this.http.get(url)
         .toPromise()
         .then(res => res.json() as UserComponent)

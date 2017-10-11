@@ -21,9 +21,7 @@ export class WelcomePageComponent implements OnInit {
   private username:string;
   private firstname:string;
   private lastname:string;
-
-  private user:UserComponent;
-
+  
   public dashboardClicked:boolean;
   public wizardsClicked:boolean;
   public hasUserClickedButton:boolean = false;
@@ -35,7 +33,6 @@ export class WelcomePageComponent implements OnInit {
         this.username = userInfo[0].username;
         this.firstname = userInfo[0].firstname;
         this.lastname = userInfo[0].lastname;
-        // this.user = new UserComponent(this.username,this.firstname,this.lastname);
     });
   }
   constructor(public route:ActivatedRoute, public userService: UserServiceComponent){}

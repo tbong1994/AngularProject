@@ -13,7 +13,7 @@ import { UserComponent } from '../user.component/user.component';
 })
 
 export class DashboardComponent implements OnInit { 
-    @Input() user: UserComponent; //get wizard from parent component
+    @Input() username: string; //get username from parent component(welcome page);
 
     public wizards : Wizard[] = [];
     private selectedWizard : Wizard;
