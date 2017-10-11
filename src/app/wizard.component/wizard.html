@@ -3,7 +3,7 @@
   <h2>
     {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
   </h2>
-  <button class ="select" (click)="goToDetail()" ngbButton>SELECT</button>
+  <button class ="select" (click)="goToDetail(selectedWizard)" ngbButton>SELECT</button>
   <button class ="remove" (click)="remove(); $event.stopPropagation()" ngbButton>Remove Wizard</button>
 </div>
 <div>

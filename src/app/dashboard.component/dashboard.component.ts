@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
         this.selectedWizard = wizard;
     }
 
-    goToDetail(): void{
-        this.router.navigate(['/wizard', this.selectedWizard.name]);
+    goToDetail(selectedWizard:Wizard): void{
+        this.router.navigate(['/wizard', selectedWizard.name]);
     }
 }

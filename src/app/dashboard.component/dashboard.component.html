@@ -2,17 +2,17 @@
     <h2>
       {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
     </h2>
-    <button class ="select" (click)="goToDetail()">SELECT</button>
+    <button class ="select" (click)="goToDetail(selectedWizard)">SELECT</button>
 </div>
 <div id="selectAWizardSpan">
-    <span>Select a Wizard {{username}} !</span>
+    <span>Select a Wizard {{username}}!</span>
 </div>
 <div>
     <ul class ="dashboardWizardListParent">
         <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
         <div class="nameAndFaceDiv">
             <span class = "center">{{wizard.name}} from {{wizard.house}}</span>
-            <img class = "{{wizard.cssClass}}" src="{{wizard.face}}" />
+            <img class = "{{wizard.cssClass}}" src="{{wizard.img}}" />
         </div>
         </li>
     </ul>

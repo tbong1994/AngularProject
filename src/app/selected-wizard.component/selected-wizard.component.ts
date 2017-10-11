@@ -38,6 +38,7 @@ export class SelectedWizardComponent implements OnInit{
         this.route.paramMap
         .switchMap((params: ParamMap) => this.wizardService.getWizard(params.get('name'))) //get parameter, 'id' should match with wizardService.getWizard() parameter.
         .subscribe(wizard => { //wizard here is the result of the .switchMap()! 
+            console.log(wizard);
             this.selectedWizard = wizard;
             this.newName = wizard.name;
         });
