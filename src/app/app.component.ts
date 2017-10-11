@@ -16,7 +16,7 @@ import { LoginComponent} from './login.component/login.component';
 })
 
 export class AppComponent implements OnInit{
-  title:string = 'Expelliarmus';
+  title:string = 'Muggles Not Allowed';
   authenticated : boolean = false;
   constructor(private appService: AppService, public router:Router){}
 

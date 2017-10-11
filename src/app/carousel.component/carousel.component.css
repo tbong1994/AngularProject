@@ -1,12 +1,38 @@
-img{
-    height:60%;
-    width: 60%;
+@font-face {
+    font-family: harrypotterfont;
+    src: url("../../assets/font/harrypotter.ttf");
 }
-#carouselTitleDiv{
-    font-size:150px;
+
+img{
+    height:50%;
+    width: 40%;
+    border-radius: 5%;
+}
+#carouselTitleDiv > h1{
+    font-size:150px !important;
     text-align: center;
-    color: rgba(218, 162, 32, 0.79);
+    color: rgba(0, 170, 255, 0.66);
+    text-shadow: 7px 16px 13px;
+    margin-top: 8%;
 }
 .center{
     text-align: center;
+}
+#dailyProphet  h1{
+    /* background-color:white !important; add animation here! */
+    font-family: harrypotterfont;
+}
+#carouselDiv{
+    background: url("../../assets/img/dailyprophet1.jpg") repeat 0 0;
+    width: 100%;
+    margin:0;
+    text-align: center;
+    min-height: 1000px;
+    box-sizing: border-box;
+    -webkit-animation: slide 15s linear infinite;
+    border: 10px solid rgba(32, 114, 218, 0.51);
+}
+@-webkit-keyframes slide{
+    from {background-position: 0 0;}
+    to{background-position: -600px 150px;}
 }

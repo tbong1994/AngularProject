@@ -7,7 +7,7 @@
 
 /*GLOBAL PROPERTIES*/
 *{
-  cursor: url("../assets/img/elderwand.png") 2 2, auto;
+  cursor: url("../assets/img/elderwand.png"), auto;
 }
 
 /*START HEADER  */
@@ -20,12 +20,14 @@
 }
 h1
 {
-  width: 100%;
+  width: fit-content;
   font-family: harrypotterfont;
-  font-size: 300px;
-  color: rgba(184, 109, 11, 0.93);
+  font-size: 250px;
+  color: rgba(13, 216, 251, 0.41);
   text-align: center;
-  text-shadow: 10px 10px 10px #808080;
+  text-shadow: 17px -17px 20px;
+  margin-left: 10%;
+  height:0;
 }
 
 a{

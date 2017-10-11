@@ -2,6 +2,7 @@
 
 body{
     background-image: url("assets/img/greathall.jpg");
+    cursor: url("assets/img/elderwand2.png"), pointer;
 }
 button, input{
     border-radius: 1000px;
