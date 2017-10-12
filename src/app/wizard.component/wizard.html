@@ -1,8 +1,9 @@
 
 <div *ngIf="selectedWizard" class ="selectedWizardText">
-  <h2>
-    {{selectedWizard.name | uppercase}} : {{selectedWizard.house | uppercase}}
+  <h2 >
+    {{selectedWizard.name | uppercase}} : {{selectedWizard.house}} aka {{selectedWizard.name | akaPipe}}
   </h2>
+  <img src="{{selectedWizard.img}}" class = "selectedWizardAnim" />
   <button class ="select" (click)="goToDetail(selectedWizard)" ngbButton>SELECT</button>
   <button class ="remove" (click)="remove(); $event.stopPropagation()" ngbButton>Remove Wizard</button>
 </div>
@@ -10,7 +11,7 @@
   <ul class ="wizardListParent">
     <li class = "wizardList" *ngFor="let wizard of wizards" [class.selected]="wizard===selectedWizard" (click)="onSelect(wizard)">
       <div class="nameAndFaceDiv">
-        <span class = "center" myWizardAttributeDirective>{{wizard.name}} from {{wizard.house}}</span>
+        <span class = "center" myWizardAttributeDirective>{{wizard.name | uppercase}} from {{wizard.house}}</span>
         <img class = "{{wizard.cssClass}}" src="{{wizard.img}}" />
       </div>
     </li>

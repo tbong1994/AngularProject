@@ -5,6 +5,22 @@
 }
 /*END FONTS*/
 
+/*ANIMATIONS*/
+@keyframes blink{
+    0%{
+        Opacity:1.0;
+        transform: translatey(-20px);
+    }
+    50%{
+        Opacity:0.5;
+        transform: translatey(20px);
+    }
+    100%{
+        Opacity:1.0;
+        transform: translatey(-20px);
+    }
+}
+
 /* START WIZARD NAME AND FACE */
 .wizardList
 {
@@ -68,6 +84,12 @@
     text-shadow: 1px 1px 1px #b3b3b3;
     font-family: harrypotterfont;
     font-size: 300%;
+}
+.selectedWizardAnim{
+    animation: blink 3s ease-in-out infinite;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 50px;
 }
 .selectedWizardImage{
     margin-left: 10px;

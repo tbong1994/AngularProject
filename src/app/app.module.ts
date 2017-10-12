@@ -27,6 +27,7 @@ import {UserServiceComponent} from './user.component/user.service.component';
 import {UserComponent} from './user.component/user.component';
 import {SignUpComponent} from './signup.component/signup.component';
 import {SignUpServiceComponent} from './signup.component/signup.service.component';
+import {AkaPipe} from './my.aka.pipe';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig({
@@ -48,6 +49,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SignUpComponent,
     NgbdCarouselConfig,
     UserComponent,
+    AkaPipe,
   ],
   imports: [
     BrowserModule,

@@ -50,7 +50,6 @@
   text-align: center;
   text-shadow: 17px -17px 20px;
   margin-left: 10%;
-  height:0;
   animation: floatSideWays 1s ease-in-out infinite;
 }
 
