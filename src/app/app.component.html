@@ -1,5 +1,6 @@
 
 <div *ngIf="authenticated"><button class="logout" (click)="onLogOutClicked()">logout</button></div>
-<h1>{{title}}</h1>
+
+<h1 id="title">{{title}}</h1>
 
 <router-outlet (activate)="onActivate($event)"></router-outlet>

@@ -21,6 +21,9 @@ img{
 #dailyProphet  h1{
     /* background-color:white !important; add animation here! */
     font-family: harrypotterfont;
+    animation: floatUpAndDown 7s ease-in-out infinite;
+    width: fit-content;
+    margin-left: 38%;
 }
 #carouselDiv{
     background: url("../../assets/img/dailyprophet1.jpg") repeat 0 0;
@@ -35,4 +38,65 @@ img{
 @-webkit-keyframes slide{
     from {background-position: 0 0;}
     to{background-position: -600px 150px;}
+    0%{
+        transform: translatex(0px);
+    }
+    30%{
+        transform: translatex(15px);
+        opacity: 0.8;
+    }
+    60%{
+        transform: translatex(15px);
+        opacity: 0.5;
+    }
+    90%{
+        transform: translatex(15px);
+        opacity: 0.3;
+    }
+    100%{
+        transform: translatex(15px);
+        opacity: 0.1;
+    }
+}
+@keyframes floatUpAndDown {
+    
+    0%{
+        transform: translatey(50px);
+    }
+    5%{
+        transform: translatey(0px);
+        transform: translatex(200px);
+    }
+    10%{
+        transform: translatex(300px);
+    }
+    15%{
+        transform: translatey(-50px);
+        transform: translatex(200px);
+    }
+    25%{
+        transform: translatey(50px);
+    }
+    35%{
+        transform: translatey(0px);
+        transform: translatex(-200px);
+    }
+    50%{
+        transform: translatex(-300px);
+    }
+    65%{
+        transform: translatey(-50px);
+    }
+    75%{
+        transform: translatex(-100px);
+    }
+    
+    90%{
+        transform: translatey(0px);
+        transform: translatex(0px);
+    }
+    100%{
+        transform: translatey(50px);
+    }
+
 }

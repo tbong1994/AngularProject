@@ -21,6 +21,7 @@
   text-align: center;
   vertical-align: center;
   border-radius: 15px;
+  animation: loginformCatchMeIfYouCan 2s ease-in-out infinite;
 }
 .form input {
   outline: 0;
@@ -120,4 +121,22 @@ h1{
   font-weight: bold;
   text-shadow: 5px 5px 5px #808080;
   font-family: harrypotterfont;
+}
+
+@keyframes loginformCatchMeIfYouCan{
+  0%{
+    transform: translatex(0px);
+  }
+  50%{
+    /* transform: translatex(-100px); */
+  }
+  65%{
+    transform: translatex(150px);
+  }
+  75%{
+    /* transform: translatex(100px); */
+  }
+  100%{
+    transform: translatex(0px);
+  }
 }

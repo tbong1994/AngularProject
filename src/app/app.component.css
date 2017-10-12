@@ -5,6 +5,29 @@
 }
 /*END FONTS*/
 
+/*ANIMATINOS*/
+@keyframes floatSideWays {
+	0% {
+    transform: translatex()(0px);
+  }
+  25% {
+    transform: translatex()(0px);
+    opacity:0.8;
+	}
+	50% {
+    transform: translatex()(-50px);
+    opacity:0.3;
+  }
+  75% {
+    transform: translatex()(0px);
+    opacity:0.7;
+	}
+	100% {
+    transform: translatex()(0px);
+    opacity: 1.0;
+	}
+}
+
 /*GLOBAL PROPERTIES*/
 *{
   cursor: url("../assets/img/elderwand.png"), auto;
@@ -18,7 +41,7 @@
   padding-top: 5%;
   /* opacity: 0.5; */
 }
-h1
+#title
 {
   width: fit-content;
   font-family: harrypotterfont;
@@ -28,6 +51,7 @@ h1
   text-shadow: 17px -17px 20px;
   margin-left: 10%;
   height:0;
+  animation: floatSideWays 1s ease-in-out infinite;
 }
 
 a{
