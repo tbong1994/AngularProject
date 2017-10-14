@@ -4,7 +4,7 @@ const con = db.createConnection({
     host: "localhost",
     user: "root",
     password: "Cjsthddl7!",
-    database: "wizards"
+    database: "wizard"
 });
 con.connect(err =>{
     if(err){

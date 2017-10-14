@@ -2,8 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServiceComponent } from './login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { AuthHttp } from 'angular2-jwt';
-import * as auth0 from 'auth0-js';
 import {AppService} from '../app.component.service';
 
 @Component({
@@ -14,7 +12,7 @@ import {AppService} from '../app.component.service';
 
 export class LoginComponent implements OnInit{
     
-    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute, private authHttp: AuthHttp, private appService:AppService ){
+    constructor(private router: Router, private loginService: LoginServiceComponent, private route: ActivatedRoute,private appService:AppService ){
     }
     
     public token: string;
@@ -38,7 +36,6 @@ export class LoginComponent implements OnInit{
         this.appService.setIsAuthenticated(this.isLoginValidated);
         this.username = username;
         this.password = password;
-        this.token = this.loginService.getClientID();
         this.router.navigate(['/welcome', username]);
     }
     

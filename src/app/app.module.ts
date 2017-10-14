@@ -6,7 +6,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule} from '@angular/router';
 import { AppRouterModule } from './app.routing-module';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /*components, libraries*/ 
@@ -28,12 +27,6 @@ import {UserComponent} from './user.component/user.component';
 import {SignUpComponent} from './signup.component/signup.component';
 import {SignUpServiceComponent} from './signup.component/signup.service.component';
 import {AkaPipe} from './my.aka.pipe';
-
-export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenGetter: (() => localStorage.getItem('access_token'))
-  }), http, options);
-}
 
 @NgModule({
   declarations: [
@@ -59,12 +52,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppRouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [WizardService, WizardComponent,LoginServiceComponent,AppService,UserServiceComponent,SignUpServiceComponent,
-    {
-      provide: AuthHttp,
-      useFactory: authHttpServiceFactory,
-      deps: [Http, RequestOptions]
-    }
+  providers: [WizardService, WizardComponent,LoginServiceComponent,AppService,UserServiceComponent,SignUpServiceComponent
   ],
   bootstrap: [AppComponent]
 })
