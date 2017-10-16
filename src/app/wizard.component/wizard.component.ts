@@ -6,11 +6,13 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Location }                 from '@angular/common';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
+import {slideIn} from './wizard.animation';
 
 @Component({
   selector: 'wizard-component',
   templateUrl: './wizard.html',
   styleUrls: ['./wizard.component.css'],
+  // animations: [slideIn],
 })
 
 @Injectable()
@@ -19,8 +21,10 @@ export class WizardComponent implements OnInit {
   private wizards : Wizard[];
   private selectedWizard : Wizard;
   private wizardImageFiles = [];
+  public slideIn;
   ngOnInit(): void {
     this.getWizards();
+    this.slideIn = 'in';
   }
   constructor(private router: Router, private wizService: WizardService, private location: Location){
     //constructor should not have complex logic(ie; data access method, etc). 

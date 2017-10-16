@@ -21,10 +21,22 @@
     }
 }
 
+@keyframes slideIn{
+    0%{
+        Opacity:0;
+        transform: translatex(-20px);
+    }
+    100%
+    {
+        opacity: 1;
+        transform: translatex(0);
+    }
+}
 /* START WIZARD NAME AND FACE */
 .wizardList
 {
     display: inline-block;
+    animation: slideIn 1.5s ease-in;
 }
 .wizFace
 {

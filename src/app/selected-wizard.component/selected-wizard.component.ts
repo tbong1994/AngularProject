@@ -14,17 +14,17 @@ import {trigger, state, style, animate, transition } from '@angular/animations';
     styleUrls: ['../wizard.component/wizard.component.css'],
     animations:[
         trigger('wizardState', [
-            state('inactive', style({
+            state(':enter', style({
               backgroundColor: '#eee',
-              transform: 'scale(1)'
+              transform: 'translateX(-100px)'
             })),
-            state('active',   style({
-              backgroundColor: '#cfd8dc',
-              transform: 'scale(1.1)'
-            })),
-            transition('inactive => active', animate('100ms ease-in')),
-            transition('active => inactive', animate('100ms ease-out'))
-          ])
+            // state('active',   style({
+            //   backgroundColor: '#cfd8dc',
+            //   transform: 'scale(1.1)'
+            // })),
+            transition(':enter', animate('1s ease-in'))
+            // transition('active => inactive', animate('100ms ease-out'))
+        ])
     ]
 })
 
@@ -33,6 +33,7 @@ export class SelectedWizardComponent implements OnInit{
 
     public newName:string;
     public isNameValidated: boolean;
+    public initAnim;
     ngOnInit(){
         //grab selected wizard
         this.route.paramMap
@@ -41,6 +42,7 @@ export class SelectedWizardComponent implements OnInit{
             console.log(wizard);
             this.selectedWizard = wizard;
             this.newName = wizard.name;
+            this.initAnim = true;
         });
     }
      constructor(private wizardService: WizardService,

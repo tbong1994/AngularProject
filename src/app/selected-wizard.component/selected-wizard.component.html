@@ -1,7 +1,7 @@
 
 <div *ngIf="selectedWizard" class ="selectedWizardText nameAndFaceDiv">
     <span>Name:</span>
-    <span [@wizardState] = "selectedWizard.state" (click)="selectedWizard.toggleState('active')">{{newName}}</span><br>
+    <span>{{newName}}</span><br>
     <span> House:{{selectedWizard.house}}</span>
     <div *ngIf = "isNameValidated == false">
         <span>
