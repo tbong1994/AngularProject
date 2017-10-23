@@ -38,12 +38,12 @@ export class WizardService {
         let wizard : Wizard = new Wizard(name, house, face, cssClass, uniqueID);
         return this.http.post(url, JSON. stringify(wizard), {headers: this.headers})
         .toPromise()
-        .then(()=> wizard)
+        .then()
         .catch(this.handleError);
     }
     
     delete(selectedWizard: Wizard): Promise<Wizard>{
-        const url = `${this.wizardsUrl}/${selectedWizard.id}`;
+        const url = `${this.wizardsUrl}/remove/${selectedWizard.name}`;
         return this.http.delete(url, {headers: this.headers})
         .toPromise()
         .then(()=> selectedWizard)

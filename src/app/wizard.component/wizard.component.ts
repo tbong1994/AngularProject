@@ -52,10 +52,10 @@ export class WizardComponent implements OnInit {
     house = house.trim();
     if(!name || !house) {return;}//show some sort of warning
     const face = this.getWizardImageFile(); //pick random image
-    let result = this.wizService.create(name, house, face);
-    result.then((wizard) => {
-      /*TODO: //indicate that this wizard has been created i.e)Wizard xyz has been created successfully! */
-    });
+    this.wizService.create(name, house, face)
+      .then(()=>{
+        this.router.navigate(['/wizards']); //refresh page
+      });
   }
   
   remove(): void{

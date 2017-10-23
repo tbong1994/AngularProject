@@ -80,8 +80,6 @@ router.put('/wizard/:name', (req, res) => {
 router.post('/create/:name', (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    console.log("create reached");
-    console.log(req.body);
     imgFile = req.body.img;
     house = req.body.house;
     name = req.body.name;
@@ -93,6 +91,23 @@ router.post('/create/:name', (req, res) => {
             return;
         }
         console.log(response);
+        res.send(response);
+    });
+});
+
+/*REMOVE WIZARD */
+router.delete('/remove/:name', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    const lastSlashIndex = req.originalUrl.lastIndexOf('/');
+    var wizardToDelete = req.originalUrl.substring(lastSlashIndex + 1); //get wizard's name from the url.
+    requestedWizardName = wizardToDelete.replace('%20',' '); //replace space in the name from the request URL. URL has '%20' for space.
+    query = "Delete from wizardofhogwartz where name = '" + requestedWizardName + "';";
+    db.query(query, (err, response) => {
+        if(err){
+            console.log(err.message);
+            return;
+        }
         res.send(response);
     });
 });
