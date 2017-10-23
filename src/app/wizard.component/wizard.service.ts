@@ -31,10 +31,12 @@ export class WizardService {
         .catch(this.handleError);
     }
 
-    create(name: string, house: string, face: string, uniqueID:number): Promise<Wizard>{
+    create(name: string, house: string, face: string): Promise<Wizard>{
+        const url = `${this.wizardsUrl}/create/${name}`;
         const cssClass:string = '';
-        let wizard : Wizard = new Wizard(face, house, name, cssClass, uniqueID);
-        return this.http.post(this.wizardsUrl, JSON. stringify(wizard), {headers: this.headers})
+        const uniqueID = Math.floor(Math.random()*(99-0 + 0));
+        let wizard : Wizard = new Wizard(name, house, face, cssClass, uniqueID);
+        return this.http.post(url, JSON. stringify(wizard), {headers: this.headers})
         .toPromise()
         .then(()=> wizard)
         .catch(this.handleError);

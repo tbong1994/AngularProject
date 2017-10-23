@@ -76,6 +76,27 @@ router.put('/wizard/:name', (req, res) => {
     });
 });
 
+/*Create a Wizard */
+router.post('/create/:name', (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    console.log("create reached");
+    console.log(req.body);
+    imgFile = req.body.img;
+    house = req.body.house;
+    name = req.body.name;
+    cssClass = req.body.cssClass;
+    query = "INSERT into wizardofhogwartz(name,house,img,cssClass) values ('" + name + "','" + house + "','" + imgFile + "','" + cssClass + "');";
+    db.query(query, (err, response) => {
+        if(err){
+            console.log(err.message);
+            return;
+        }
+        console.log(response);
+        res.send(response);
+    });
+});
+
 /*AUTHENTICATE LOGIN */
 router.post('/login/:username/:password', (req,res)=>{
     res.header("Access-Control-Allow-Origin", "*");

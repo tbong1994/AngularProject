@@ -20,14 +20,15 @@ export class WizardComponent implements OnInit {
   @Input() _wizard: Wizard;
   private wizards : Wizard[];
   private selectedWizard : Wizard;
-  private wizardImageFiles = [];
   public slideIn;
+
+  constructor(private router: Router, private wizService: WizardService, private location: Location){
+    //constructor should not have complex logic(ie; data access method, etc).
+  }
+
   ngOnInit(): void {
     this.getWizards();
     this.slideIn = 'in';
-  }
-  constructor(private router: Router, private wizService: WizardService, private location: Location){
-    //constructor should not have complex logic(ie; data access method, etc). 
   }
 
   getWizards(): void{
@@ -46,17 +47,15 @@ export class WizardComponent implements OnInit {
     this.router.navigate(['/wizard', selectedWizard.name]);
   }
 
-  add(name: string, house:string): void{
-    let uniqueID:number  = 0;
+  create(name: string, house:string): void{
     name = name.trim();
     house = house.trim();
-    const face = this.wizardImageFiles[Math.ceil(Math.random()*(4-0 + 0))]; //pick random image
-    if(!name) {return}
-    this.wizService.create(name, house, face, uniqueID)
-    .then(wizard => {
-      this.wizards.push(wizard);
-      this.selectedWizard = null;
-    })
+    if(!name || !house) {return;}//show some sort of warning
+    const face = this.getWizardImageFile(); //pick random image
+    let result = this.wizService.create(name, house, face);
+    result.then((wizard) => {
+      /*TODO: //indicate that this wizard has been created i.e)Wizard xyz has been created successfully! */
+    });
   }
   
   remove(): void{
@@ -66,5 +65,13 @@ export class WizardComponent implements OnInit {
       this.wizards = this.wizards.filter(wiz => wiz !== wizard);
       if(this.selectedWizard === wizard){wizard = null;}
     })
+  }
+
+  getWizardImageFile(): string{
+    const wizFaces = ["../../assets/img/malfoy.jpg",
+    "../../assets/img/dumbledore.jpg",
+    "../../assets/img/sirius.jpg",
+    "../../assets/img/neville.jpg"];
+    return wizFaces[Math.floor(Math.random()*(3-0 + 0))];
   }
 }
