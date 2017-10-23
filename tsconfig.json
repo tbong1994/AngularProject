@@ -15,5 +15,9 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+  "exclude": [
+    "typings/brower.d.ts",
+    "node_modules"
+  ]
 }

@@ -17,5 +17,5 @@ export class AkaPipe implements PipeTransform {
         else if(value.startsWith("Sev")){this.akaName="The Half Blood Prince";}
         else if(value.startsWith("Vol")){this.akaName="The Dark Lord";}
         return this.akaName.toUpperCase();
-        }
+    }
 }
