@@ -7,6 +7,7 @@ import { RouterModule} from '@angular/router';
 import { AppRouterModule } from './app.routing-module';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { phaser } from './game.component/ts.definitions/phaser';
 
 /*components, libraries*/ 
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
@@ -27,6 +28,7 @@ import {UserComponent} from './user.component/user.component';
 import {SignUpComponent} from './signup.component/signup.component';
 import {SignUpServiceComponent} from './signup.component/signup.service.component';
 import {AkaPipe} from './my.aka.pipe';
+import {SimpleGame} from './game.component/hp.game/hp.game';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import {AkaPipe} from './my.aka.pipe';
     NgbdCarouselConfig,
     UserComponent,
     AkaPipe,
+    SimpleGame,
   ],
   imports: [
     BrowserModule,

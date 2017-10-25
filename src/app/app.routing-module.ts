@@ -7,6 +7,7 @@ import { SelectedWizardComponent } from './selected-wizard.component/selected-wi
 import { LoginComponent } from './login.component/login.component';
 import { WelcomePageComponent } from './welcome.page.component/welcome.page.component';
 import {SignUpComponent} from './signup.component/signup.component';
+import {SimpleGame} from './game.component/hp.game/hp.game';
 
 const appRoute: Routes = [
   {path: 'login', component: LoginComponent, data:{name:'login'}},
@@ -15,7 +16,8 @@ const appRoute: Routes = [
   {path: 'wizards', component: WizardComponent},
   {path: '',redirectTo: '/login',pathMatch: 'full'},
   {path: 'wizard/:name', component: SelectedWizardComponent},
-  {path: 'signup', component: SignUpComponent}
+  {path: 'signup', component: SignUpComponent},
+  {path: 'game', component: SimpleGame}
 ]
 
 @NgModule({

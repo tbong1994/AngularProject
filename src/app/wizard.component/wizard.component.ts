@@ -3,7 +3,7 @@ import { WizardService } from './wizard.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { Location }                 from '@angular/common';
+import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import {slideIn} from './wizard.animation';
@@ -51,7 +51,7 @@ export class WizardComponent implements OnInit {
     name = name.trim();
     house = house.trim();
     if(!name || !house) {return;}//show some sort of warning
-    const face = this.getWizardImageFile(); //pick random image
+    const face = this.getWizardImageFile(name); //pick random image
     this.wizService.create(name, house, face)
       .then(()=>{
         this.router.navigate(['/wizards']); //refresh page
@@ -67,11 +67,23 @@ export class WizardComponent implements OnInit {
     })
   }
 
-  getWizardImageFile(): string{
+  getWizardImageFile(name:string): string{
+    let nameToLowerCase = name.toLowerCase();
+    let imgFile = "";
     const wizFaces = ["../../assets/img/malfoy.jpg",
     "../../assets/img/dumbledore.jpg",
     "../../assets/img/sirius.jpg",
     "../../assets/img/neville.jpg"];
-    return wizFaces[Math.floor(Math.random()*(3-0 + 0))];
+    if(nameToLowerCase == 'dumbledore'){
+      imgFile = wizFaces[1];
+    }
+    else if(nameToLowerCase == 'sirius'){
+      imgFile = wizFaces[2];
+    }
+    else if(nameToLowerCase == 'neville'){
+      imgFile = wizFaces[3];
+    }
+    else{ imgFile = wizFaces[0];}
+    return imgFile;
   }
 }

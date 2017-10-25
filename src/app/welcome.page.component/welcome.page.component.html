@@ -29,6 +29,9 @@
             <label class="btn-primary buttons" ngbButtonLabel (click) = "onWizardsClicked()">
                 Wizards
             </label>
+            <label class="btn-primary buttons" ngbButtonLabel (click) = "onGameClicked()">
+                Game
+            </label>
         </nav>
         <div *ngIf="dashboardClicked">
             <my-dashboard [username]="username"></my-dashboard>

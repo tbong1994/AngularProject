@@ -4,7 +4,7 @@ import { Wizard } from '../wizard.component/wizard';
 import { ng2parallax } from 'ang2-parallax/ng2parallax';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WizardService } from '../wizard.component/wizard.service';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { LoginServiceComponent } from '../login.component/login.component.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {UserServiceComponent} from '../user.component/user.service.component';
@@ -35,7 +35,7 @@ export class WelcomePageComponent implements OnInit {
         this.lastname = userInfo[0].lastname;
     });
   }
-  constructor(public route:ActivatedRoute, public userService: UserServiceComponent){}
+  constructor(public route:ActivatedRoute, public userService: UserServiceComponent, public router: Router){}
   
   onDashboardClicked() : void{
     this.wizardsClicked = false;
@@ -47,5 +47,11 @@ export class WelcomePageComponent implements OnInit {
     this.dashboardClicked = false;
     this.wizardsClicked = true;
     this.hasUserClickedButton = true;
+  }
+  onGameClicked(): void{
+    this.dashboardClicked = false;
+    this.wizardsClicked = false;
+    this.hasUserClickedButton = true;
+    this.router.navigate(['/game']); //pass username later
   }
 }

@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
+    "module": "commonjs",
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -17,7 +18,7 @@
     ]
   },
   "exclude": [
-    "typings/brower.d.ts",
+    "typings/browser.d.ts",
     "node_modules"
   ]
 }
