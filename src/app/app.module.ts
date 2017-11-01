@@ -7,7 +7,6 @@ import { RouterModule} from '@angular/router';
 import { AppRouterModule } from './app.routing-module';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { phaser } from './game.component/ts.definitions/phaser';
 
 /*components, libraries*/ 
 import { ng2parallax } from 'ang2-parallax/ng2parallax';

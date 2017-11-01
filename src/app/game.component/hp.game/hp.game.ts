@@ -1,3 +1,4 @@
+/// <reference path="../phaser.build.files/phaser.d.ts"/>
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Component, Input, OnInit } from '@angular/core';
@@ -16,9 +17,7 @@ import 'rxjs/add/operator/switchMap';
 })
 
 export class SimpleGame
-{
-	game:Phaser.Game;
-	
+{	
 	constructor()
 	{
 		// create our phaser game
@@ -29,7 +28,8 @@ export class SimpleGame
 		// { preload:this.preload, create:this.create} - functions to call for our states
 		this.game = new Phaser.Game( 800, 600, Phaser.AUTO, 'gamecontainer', { preload:this.preload, create:this.create} );
 	}
-	
+	game:Phaser.Game;
+
 	preload()
 	{
 		// add our logo image to the assets class under the
